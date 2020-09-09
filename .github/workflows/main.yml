@@ -9,7 +9,8 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    #runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v2
@@ -25,9 +26,15 @@ jobs:
     - name: Limit complexity
       run: $HOME/.local/bin/lizard --CCN 3
 
-    - name: Build with dotnet
-      run: dotnet build --configuration Release
+    # - name: Build with dotnet
+    #   run: dotnet build
 
     - name: Run unit tests
-      run: dotnet test --logger "console;
+      run: dotnet test --logger "console;verbosity=detailed";
+
+    - name: Generate coverage report
+      run: dotnet test --collect:"XPlat Code Coverage"
+      
+    - name: Check Coverage
+      run: powershell ./coverage.ps1 -linerate 0.95 -branchrate 0.8
 
