@@ -1,0 +1,23 @@
+name: Test
+
+on:
+  push:
+    branches: 
+      - '*'
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Run unit tests
+      run: dotnet test --logger "console;verbosity=detailed";
+
+    - name: Generate coverage report
+      run: dotnet test --collect:"XPlat Code Coverage"
+      
+    - name: Check Coverage
+      run: powershell ./coverage.ps1 -linerate 0.95 -branchrate 0.8
