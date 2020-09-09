@@ -19,21 +19,6 @@ jobs:
       with:
         node-version: '12.x'
 
-    - name: Lint markdowns
-      uses: nosborn/github-action-markdown-cli@v1.1.1
-      with:
-        files: .
-
-    - name: Check Spelling
-      run: |
-        npm install -g markdown-spellcheck
-        mdspell --ignore-numbers --ignore-acronyms --report --en-us ./*.md
-        
-    - name: Check goodness of writing
-      run: |
-        npm install -g write-good
-        npx write-good *.md
-
     - name: Install lizard
       run: pip install lizard
 
