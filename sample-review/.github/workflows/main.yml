@@ -1,0 +1,14 @@
+name: CI
+on:
+  push:
+    branches:
+      - '*'
+  pull_request:
+    branches:
+      - master
+jobs:
+  sample:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "::set-output name=test::hello"
+      
