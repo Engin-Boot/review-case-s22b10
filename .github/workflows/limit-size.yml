@@ -25,3 +25,9 @@ jobs:
     - name: Limit complexity
       run: $HOME/.local/bin/lizard --CCN 3
 
+    - name: Build with dotnet
+      run: dotnet build --configuration Release
+
+    - name: Run unit tests
+      run: dotnet test --logger "console;
+
