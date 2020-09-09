@@ -10,5 +10,8 @@ jobs:
   sample:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "::set-output name=test::hello"
+      - uses: actions/checkout@v2
+
+      - name: Run echo
+        run: echo "::set-output name=test::hello"
       
