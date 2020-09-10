@@ -18,6 +18,3 @@ jobs:
 
     - name: Run unit tests
       run: dotnet test --logger "console;verbosity=detailed";
-
-    - name: Check Coverage
-      run: powershell ./sender.Tests/coverage.ps1 -linerate 0.95 -branchrate 0.8
