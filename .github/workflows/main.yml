@@ -28,6 +28,9 @@ jobs:
 
     - name: Check Code Duplicacy
       run: |
+<<<<<<< HEAD
         npm cache clean --force
+=======
+>>>>>>> c9c1d0bc37d9de27654ce1c25545e0bf39b007a2
         npm install -g jscpd
         npx jscpd /sender.Tests/*
