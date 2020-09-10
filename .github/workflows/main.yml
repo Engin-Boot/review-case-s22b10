@@ -25,3 +25,8 @@ jobs:
 
     - name: Limit complexity
       run: $HOME/.local/bin/lizard --CCN 3
+
+    - name: Check Code Duplicacy
+      run: |
+        npm install -g jscpd
+        npx jscpd /sender.Tests/*
