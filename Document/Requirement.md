@@ -6,7 +6,7 @@
     Read CSV File
     write the word on console
 
-## Reviver
+## Reciver
 
     Create a CSV file
     Read the word from Console
