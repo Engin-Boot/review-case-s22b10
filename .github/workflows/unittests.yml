@@ -22,6 +22,8 @@ jobs:
     - name: Generate coverage report
       run: dotnet test --collect:"XPlat Code Coverage"
 
+    - name: Create coverage report
+      run: dotnet reportgenerator "-reports:*Test*/TestResults/*/coverage.cobertura.xml" "-targetdir:CoverageReports" "-reporttypes:Html;Cobertura"
       
     - name: Check Coverage
-      run: powershell ./coverage.ps1 -linerate 0.95 -branchrate 0.8
+      run: powershell ./sender.Tests/coverage.ps1 -linerate 0.95 -branchrate 0.8
