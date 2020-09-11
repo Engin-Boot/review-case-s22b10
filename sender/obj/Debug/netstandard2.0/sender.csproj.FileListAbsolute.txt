@@ -1,9 +1,0 @@
-C:\Users\320072737\work_rt\review-case-s22b10\sender\bin\Debug\netstandard2.0\sender.deps.json
-C:\Users\320072737\work_rt\review-case-s22b10\sender\bin\Debug\netstandard2.0\sender.dll
-C:\Users\320072737\work_rt\review-case-s22b10\sender\bin\Debug\netstandard2.0\sender.pdb
-C:\Users\320072737\work_rt\review-case-s22b10\sender\obj\Debug\netstandard2.0\sender.csprojAssemblyReference.cache
-C:\Users\320072737\work_rt\review-case-s22b10\sender\obj\Debug\netstandard2.0\sender.AssemblyInfoInputs.cache
-C:\Users\320072737\work_rt\review-case-s22b10\sender\obj\Debug\netstandard2.0\sender.AssemblyInfo.cs
-C:\Users\320072737\work_rt\review-case-s22b10\sender\obj\Debug\netstandard2.0\sender.csproj.CoreCompileInputs.cache
-C:\Users\320072737\work_rt\review-case-s22b10\sender\obj\Debug\netstandard2.0\sender.dll
-C:\Users\320072737\work_rt\review-case-s22b10\sender\obj\Debug\netstandard2.0\sender.pdb
