@@ -14,17 +14,25 @@ namespace sender
             while (!reader.EndOfStream)
             {
                 var row = reader.ReadLine();
-                if (row.Contains(separatingChar))
-                {
-                    var comment_string = row.Split(separatingChar);
-                    if (col_filter == null)
-                        WriteWordOnConsoleNoColumnFilter(comment_string);
-                    else
-                        WriteWordOnConsoleColumnFilter(comment_string, col_filter);
+                var comment_string = SplitRowBasedOnSeperator(row, separatingChar);
+                if (col_filter == null)
+                    WriteWordOnConsoleNoColumnFilter(comment_string);
+                else
+                    WriteWordOnConsoleWithColumnFilter(comment_string, col_filter);
                 }
             }
-        }
 
+        private string[] SplitRowBasedOnSeperator(string row, char seperator)
+        {
+        if (row.Contains(seperator))
+        {
+            return row.Split(seperator);
+        }
+        else
+        {
+            return new []{ row };
+        }
+        }
         private void WriteWordOnConsoleNoColumnFilter(string[] comment)
         {
             for (var column = 0; column < comment.Length; column++)
@@ -33,7 +41,7 @@ namespace sender
             }
         }
 
-        private void WriteWordOnConsoleColumnFilter(string[] comment, string col_filter_string)
+        private void WriteWordOnConsoleWithColumnFilter(string[] comment, string col_filter_string)
         {
             try
             {   
