@@ -7,14 +7,18 @@ namespace sender
     {
         static void Main(string[] args)
         {
-            CSVReader reader = new CSVReader();
-            StreamReader stream_reader = reader.CSV_Reader(Constants.csv_path);
-            if (stream_reader != null)
+            StreamReader stream_reader = null;
+            try
             {
-                reader.WriteWordOnConsole(stream_reader);
+                var csv_path = args[0];
+                stream_reader = new StreamReader(csv_path);
             }
-
-            Console.ReadKey();
+            catch(Exception)
+            {
+                throw new Exception("Invalid File Name");
+            }
+            CSVReader reader = new CSVReader();
+            reader.WriteWordOnConsole(stream_reader, args[1]);
         }
     }
 }

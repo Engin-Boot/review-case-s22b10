@@ -7,19 +7,7 @@ namespace sender
 {
     public class CSVReader
     {
-        internal StreamReader CSV_Reader(string csv_name)
-        {
-            try
-            {
-                return new StreamReader(csv_name);
-            }
-            catch
-            {
-                Console.WriteLine("ERROR: Unable to read CSV file. Please check file path and permission of the file");
-                return null;
-            }
-        }
-        internal void WriteWordOnConsole(StreamReader reader, [Optional] int col_filter)
+        internal void WriteWordOnConsole(StreamReader reader, [Optional] string col_filter)
         {
             reader.ReadLine();      // Remove title of columns
             char separatingChar = ',';
@@ -29,33 +17,38 @@ namespace sender
                 if (row.Contains(separatingChar))
                 {
                     var comment_string = row.Split(separatingChar);
-                    WriteWordOnConsoleBasedOnColumnFilter(comment_string, col_filter);
+                    if (col_filter == null)
+                        WriteWordOnConsoleNoColumnFilter(comment_string);
+                    else
+                        WriteWordOnConsoleColumnFilter(comment_string, col_filter);
                 }
             }
         }
-        private void WriteWordOnConsoleBasedOnColumnFilter(string[] comment, int col_filter)
+
+        private void WriteWordOnConsoleNoColumnFilter(string[] comment)
         {
-            if (col_filter == 0)
+            for (var column = 0; column < comment.Length; column++)
             {
-                // Filtering on column is not applied
-                for (var column = 0; column < comment.Length; column++)
-                {
-                    Console.Write(comment[column] + " ");
-                }
+                Console.Write(comment[column] + " ");
             }
-            else
-            {
-                try
-                {
-                    Console.Write(comment[col_filter]);
-                }
-                catch (IndexOutOfRangeException)
-                {
-                    // skip the row
-                }
-
-            }
-
         }
+
+        private void WriteWordOnConsoleColumnFilter(string[] comment, string col_filter_string)
+        {
+            try
+            {   
+                var col_filter = int.Parse(col_filter_string);
+                Console.Write(comment[col_filter] + " ");
+            }
+            catch (IndexOutOfRangeException)
+            {
+                // skip the row
+            }
+            catch(FormatException)
+            {
+                throw new Exception("Error: Invalid column argument");
+            }
+        }
+        
     }
 }
