@@ -20,7 +20,7 @@ namespace sender
                 else
                     WriteWordOnConsoleWithColumnFilter(comment_string, col_filter);
                 }
-            }
+            }   
 
         private string[] SplitRowBasedOnSeperator(string row, char seperator)
         {
