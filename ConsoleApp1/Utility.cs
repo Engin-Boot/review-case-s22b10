@@ -20,7 +20,7 @@ namespace ConsoleApp1
             return true;
         } 
         public static Dictionary<string, CSVDataStructure> ReadFromFile
-            (StreamReader sr, string filepath, Dictionary<string,CSVDataStructure> file_content)
+            (StreamReader sr, Dictionary<string,CSVDataStructure> fileContent)
         {
             string line;
             while ((line = sr.ReadLine()) != null)
@@ -28,7 +28,7 @@ namespace ConsoleApp1
                 string[] words = line.Split(',');
                 try
                 {
-                    CSVDataManipulator.AddDataInList(words[0], words[1],"",file_content);
+                    CSVDataManipulator.AddDataInList(words[0], words[1],"",fileContent);
                 }
                 catch (Exception)
                 {
@@ -36,10 +36,10 @@ namespace ConsoleApp1
                 }
             }
             sr.Close();
-            return file_content;
+            return fileContent;
         }
         public static Dictionary<string, CSVDataStructure> ReadFromConsole
-            (Dictionary<string, CSVDataStructure> file_content)
+            (Dictionary<string, CSVDataStructure> fileContent)
         {
             string line;
             while ((line = Console.ReadLine()) != null)
@@ -57,19 +57,19 @@ namespace ConsoleApp1
                     {
                         try
                         {
-                            CSVDataManipulator.AddDataInList(stringOnly, "1", date,file_content);
+                            CSVDataManipulator.AddDataInList(stringOnly, "1", date,fileContent);
                         }
                         catch (ArgumentException)
                         {
-                            var MapedObj = file_content[stringOnly];
-                            MapedObj.wordCount = (int.Parse(MapedObj.wordCount) + 1).ToString();
+                            var mapedObj = fileContent[stringOnly];
+                            mapedObj.wordCount = (int.Parse(mapedObj.wordCount) + 1).ToString();
                             CSVDataManipulator.AppendDateInListIfNotInList(date);
-                            file_content[stringOnly] = MapedObj;
+                            fileContent[stringOnly] = mapedObj;
                         }
                     }
                 }
             }
-            return file_content;
+            return fileContent;
         }
     }
 }

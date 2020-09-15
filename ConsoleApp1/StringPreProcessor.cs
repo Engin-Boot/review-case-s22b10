@@ -47,10 +47,10 @@ namespace ConsoleApp1
         public static bool RemoveStopWord(string word)
         {
             StreamReadWrite srw = new StreamReadWrite();
-            string file_path = "C:\\Users\\320089145\\trainging\\ConsoleApp1\\ConsoleApp1\\bin\\Debug\\stopwords.csv";
-            if (File.Exists(file_path))
+            string filePath = "C:\\Users\\320089145\\trainging\\ConsoleApp1\\ConsoleApp1\\bin\\Debug\\stopwords.csv";
+            if (File.Exists(filePath))
             {
-                StreamReader sr = srw.StreamReturnObject(file_path);
+                StreamReader sr = srw.StreamReturnObject(filePath);
                 string line;
                 while ((line = sr.ReadLine()) != null)
                 {

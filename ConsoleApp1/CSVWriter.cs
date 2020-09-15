@@ -11,12 +11,12 @@ namespace ConsoleApp1
 {
     class CSVWriter
     {
-        internal void WriteOnCSV(string filepath, Dictionary<string, CSVDataStructure> file_content)
+        internal void WriteOnCSV(string filePath, Dictionary<string, CSVDataStructure> fileContent)
         {
             StringBuilder wordAndWordCount = new StringBuilder();
-            using (var writer = new StreamWriter(filepath))
+            using (var writer = new StreamWriter(filePath))
             {
-                foreach (var item in file_content)
+                foreach (var item in fileContent)
                 {
                     StringBuilder dateList = new StringBuilder();
                     foreach (var entry in item.Value.date)
@@ -27,7 +27,7 @@ namespace ConsoleApp1
                     wordAndWordCount.AppendLine(dataFormat);
                 }
             }
-            System.IO.File.WriteAllText(filepath, wordAndWordCount.ToString());
+            System.IO.File.WriteAllText(filePath, wordAndWordCount.ToString());
         }
     }
 }

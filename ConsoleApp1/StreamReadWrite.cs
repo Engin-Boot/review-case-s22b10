@@ -10,12 +10,12 @@ namespace ConsoleApp1
     
     public class StreamReadWrite
     {
-        public StreamReader StreamReturnObject(string filename)
+        public StreamReader StreamReturnObject(string fileName)
         {
             
             try
             {
-                StreamReader sr = new StreamReader(filename);
+                StreamReader sr = new StreamReader(fileName);
                 return sr;
             }
             catch(Exception)

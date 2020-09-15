@@ -25,7 +25,7 @@ namespace ConsoleApp1
             }
             csvObj.date.Add(date);
         }
-        public static void AddDataInList(string word, string wordCount, string date,
+        internal static void AddDataInList(string word, string wordCount, string date,
             Dictionary<string, CSVDataStructure> file_contents)
         {
             CSVDataStructure listObj = new CSVDataStructure();
