@@ -11,10 +11,6 @@ namespace sender.Test
             string path = Directory.GetCurrentDirectory();
             return Path.Combine(Directory.GetParent(path).Parent.Parent.FullName, csv_file_name);
         }
-        public static Sender getSender()
-        {
-            return new Sender();
-        }
         public static string CreateDummyCSV(string csv_file_name)
         {
             string delimeter = ",";

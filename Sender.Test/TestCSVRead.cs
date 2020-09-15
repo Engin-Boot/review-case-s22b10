@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
+﻿using System.IO;
 using Xunit;
-using Xunit.Sdk;
 using static sender.Test.Utility;
 
 namespace sender.Test

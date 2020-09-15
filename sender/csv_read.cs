@@ -19,10 +19,9 @@ namespace sender
                 var comment_string = SplitRowBasedOnSeperator(row, separatingChar);
                 if (col_filter == null)
                     WriteWordOnConsoleNoColumnFilter(comment_string);
-                else
+                else if (!WriteWordOnConsoleWithColumnFilter(comment_string, col_filter))
                 {
-                    if (!WriteWordOnConsoleWithColumnFilter(comment_string, col_filter))
-                        break;
+                    break;
                 }
             }
             reader.Close();

@@ -1,5 +1,4 @@
-﻿using System;
-using Xunit;
+﻿using Xunit;
 using static sender.Test.Utility;
 
 namespace sender.Test
@@ -8,9 +7,8 @@ namespace sender.Test
     {
         
         [Fact]
-        public void TestMainInvalidCSVFileNameThrowsException()
+        public void TestMainInvalidCSVFileName()
         {
-            Sender sender = getSender();
             var output = ConsolerReaderForTest();
             Sender.Main(new string[] { "" });
             var expected_result = "2(0xF)";
