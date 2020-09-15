@@ -12,16 +12,14 @@ namespace sender
         internal void WriteWordOnConsole(StreamReader reader, [Optional] string col_filter)
         {
             reader.ReadLine();      // Remove title of columns
-            char separatingChar = ',';
-            while (!reader.EndOfStream)
+            
+            if (col_filter == null)
+                    WriteWordOnConsoleNoColumnFilter(reader);
+            else
             {
-                var row = reader.ReadLine();
-                var comment_string = SplitRowBasedOnSeperator(row, separatingChar);
-                if (col_filter == null)
-                    WriteWordOnConsoleNoColumnFilter(comment_string);
-                else if (!WriteWordOnConsoleWithColumnFilter(comment_string, col_filter))
-                    break;
+                WriteWordOnConsoleWithColumnFilter(reader, col_filter);
             }
+            
             reader.Close();
         }
 
@@ -33,22 +31,32 @@ namespace sender
             }
             return new[] { "" };
         }
-        private void WriteWordOnConsoleNoColumnFilter(string[] comment)
+        private void WriteWordOnConsoleNoColumnFilter(StreamReader reader)
         {
-            for (var column = 0; column < comment.Length; column++)
+            while (!reader.EndOfStream)
             {
-                Console.Write(comment[column] + " ");
+                var row = reader.ReadLine();
+                var comment_string = SplitRowBasedOnSeperator(row, ',');
+                for (var column = 0; column < comment_string.Length; column++)
+                {
+                    Console.Write(comment_string[column] + " ");
+                }
+                Console.WriteLine();
             }
-            Console.WriteLine();
         }
 
-        private bool WriteWordOnConsoleWithColumnFilter(string[] comment, string col_filter_string)
+        private bool WriteWordOnConsoleWithColumnFilter(StreamReader reader, string col_filter_string)
         {
             bool isValidColumn = true;
             try
             {
-                var col_filter = int.Parse(col_filter_string);
-                Console.Write(comment[col_filter] + " ");
+                while (!reader.EndOfStream)
+                {
+                    var row = reader.ReadLine();
+                    var comment_string = SplitRowBasedOnSeperator(row, ',');
+                    var col_filter = int.Parse(col_filter_string);
+                    Console.Write(comment_string[col_filter] + " ");
+                }
             }
             catch (IndexOutOfRangeException)
             {
