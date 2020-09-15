@@ -13,6 +13,7 @@ namespace sender.Test
         }
         public static string CreateDummyCSV(string csv_file_name)
         {
+            RemoveCSVFile(csv_file_name);
             string delimeter = ",";
             string[][] output = new string[][]{
                    new string[]{ "ReviewDate", "Comments"},

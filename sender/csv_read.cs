@@ -17,7 +17,17 @@ namespace sender
                     WriteWordOnConsoleNoColumnFilter(reader);
             else
             {
-                WriteWordOnConsoleWithColumnFilter(reader, col_filter);
+                var column_name = 0;
+                try
+                {
+                    column_name = int.Parse(col_filter);
+                }
+                catch(FormatException)
+                {
+                    Console.Write("2(0xA)");
+                    return;
+                }
+                WriteWordOnConsoleWithColumnFilter(reader, column_name);
             }
             
             reader.Close();
@@ -45,29 +55,22 @@ namespace sender
             }
         }
 
-        private bool WriteWordOnConsoleWithColumnFilter(StreamReader reader, string col_filter_string)
+        private void WriteWordOnConsoleWithColumnFilter(StreamReader reader, int col_filter)
         {
-            bool isValidColumn = true;
-            try
+
+            while (!reader.EndOfStream)
             {
-                while (!reader.EndOfStream)
+                var row = reader.ReadLine();
+                var comment_string = SplitRowBasedOnSeperator(row, ',');
+                try
                 {
-                    var row = reader.ReadLine();
-                    var comment_string = SplitRowBasedOnSeperator(row, ',');
-                    var col_filter = int.Parse(col_filter_string);
                     Console.Write(comment_string[col_filter] + " ");
                 }
+                catch (IndexOutOfRangeException)
+                {
+                    //Skip the row
+                }
             }
-            catch (IndexOutOfRangeException)
-            {
-                // skip the row
-            }
-            catch (FormatException)
-            {
-                isValidColumn = false;
-                Console.Write("2(0xA)");
-            }
-            return isValidColumn;
         }
     }
 }
