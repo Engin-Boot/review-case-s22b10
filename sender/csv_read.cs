@@ -20,9 +20,7 @@ namespace sender
                 if (col_filter == null)
                     WriteWordOnConsoleNoColumnFilter(comment_string);
                 else if (!WriteWordOnConsoleWithColumnFilter(comment_string, col_filter))
-                {
                     break;
-                }
             }
             reader.Close();
         }

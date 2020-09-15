@@ -32,6 +32,7 @@ jobs:
       run: powershell ./resharper.ps1
 
     - name: Generate coverage report
-        run: dotnet test --collect:"XPlat Code Coverage"
+      run: dotnet test --collect:"XPlat Code Coverage"
+    
     - name: Check Coverage
-        run: powershell ./coverage.ps1 -linerate 0.95
+      run: powershell ./coverage.ps1 -linerate 0.95
