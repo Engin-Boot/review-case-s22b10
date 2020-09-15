@@ -1,11 +1,13 @@
 ﻿using System;
 using System.IO;
+using System.Runtime.CompilerServices;
 
+[assembly: InternalsVisibleTo("Test")]
 namespace sender
 {
-    class Sender
+    public class Sender
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             StreamReader stream_reader = null;
             try
@@ -15,10 +17,10 @@ namespace sender
             }
             catch (Exception)
             {
-                throw new Exception("Invalid File Name");
+                Console.Write("2(0xF)");
+                return;
             }
             CSVReader reader = new CSVReader();
-            Console.WriteLine(args.Length);
             if (args.Length <= 1)
             {
                 reader.WriteWordOnConsole(stream_reader);

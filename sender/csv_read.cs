@@ -1,8 +1,10 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
+[assembly: InternalsVisibleTo("Test")]
 namespace sender
 {
     public class CSVReader
@@ -18,20 +20,21 @@ namespace sender
                 if (col_filter == null)
                     WriteWordOnConsoleNoColumnFilter(comment_string);
                 else
-                    WriteWordOnConsoleWithColumnFilter(comment_string, col_filter);
+                {
+                    if (!WriteWordOnConsoleWithColumnFilter(comment_string, col_filter))
+                        break;
                 }
-            }   
+            }
+            reader.Close();
+        }
 
         private string[] SplitRowBasedOnSeperator(string row, char seperator)
         {
-        if (row.Contains(seperator))
-        {
-            return row.Split(seperator);
-        }
-        else
-        {
-            return new []{ row };
-        }
+            if (row.Contains(seperator))
+            {
+                return row.Split(seperator);
+            }
+            return new[] { "" };
         }
         private void WriteWordOnConsoleNoColumnFilter(string[] comment)
         {
@@ -39,12 +42,14 @@ namespace sender
             {
                 Console.Write(comment[column] + " ");
             }
+            Console.WriteLine();
         }
 
-        private void WriteWordOnConsoleWithColumnFilter(string[] comment, string col_filter_string)
+        private bool WriteWordOnConsoleWithColumnFilter(string[] comment, string col_filter_string)
         {
+            bool isValidColumn = true;
             try
-            {   
+            {
                 var col_filter = int.Parse(col_filter_string);
                 Console.Write(comment[col_filter] + " ");
             }
@@ -52,11 +57,12 @@ namespace sender
             {
                 // skip the row
             }
-            catch(FormatException)
+            catch (FormatException)
             {
-                throw new Exception("Error: Invalid column argument");
+                isValidColumn = false;
+                Console.Write("2(0xA)");
             }
+            return isValidColumn;
         }
-        
     }
 }
