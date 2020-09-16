@@ -7,11 +7,11 @@ namespace Receiver.Test
         [Fact]
         public void TestIsValidString()
         {
-            bool stringIsDate = StringPreProcessor.IsValidString("04/02/2020");
-            bool stringIsStopWord = StringPreProcessor.IsValidString("did");
+            bool stringIsDate = StringPreProcessor.IsValidString("04-02-2020");
             bool isValidString = StringPreProcessor.IsValidString("review");
+            bool isStringNull = StringPreProcessor.IsValidString("");
             Assert.False(stringIsDate);
-            Assert.False(stringIsStopWord);
+            Assert.False(isStringNull);
             Assert.True(isValidString);
         }
 
