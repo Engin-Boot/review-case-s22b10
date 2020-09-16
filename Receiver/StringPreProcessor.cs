@@ -85,7 +85,7 @@ namespace Receiver
             foreach (char letter in word)
             {
                 bool isLetterIsAppended = IsLetterIsAppended(letter);
-                if (isLetterIsAppended == true)
+                if (isLetterIsAppended)
                 {
                     stringOnly.Append(letter);
                 }
@@ -101,7 +101,7 @@ namespace Receiver
             StreamReadWrite srw = new StreamReadWrite();
             string filePath = "C:\\Users\\320089145\\trainging\\ConsoleApp1\\ConsoleApp1\\bin\\Debug\\stopwords.csv";
             bool isFilePathExist = File.Exists(filePath);
-            if (isFilePathExist == true)
+            if (isFilePathExist)
             {
                 StreamReader sr = srw.StreamReturnObject(filePath);
                 string line;
@@ -109,7 +109,7 @@ namespace Receiver
                 {
                     string[] words = line.Split(',');
                     bool isWordInStopWordFile = IsWordInStopWordFile(word, words[0]);
-                    if (isWordInStopWordFile == true)
+                    if (isWordInStopWordFile)
                     {
                         sr.Close();
                         return true;
