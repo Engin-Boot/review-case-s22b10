@@ -56,7 +56,7 @@ namespace ConsoleApp1
                 bool isDigit = IsDigit(letter);
                 bool isAlphabet = IsAlphabet(letter);
                 bool isSymbol = IsSymbol(letter);
-                if (isDigit == isAlphabet == isSymbol == true)
+                if (isDigit || isAlphabet || isSymbol )
                 {
                     stringOnly.Append(letter);
                 }
