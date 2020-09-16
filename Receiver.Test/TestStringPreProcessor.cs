@@ -1,5 +1,5 @@
 ﻿using Xunit;
-
+ 
 namespace Receiver.Test
 {
     public class TestStringPreProcessor

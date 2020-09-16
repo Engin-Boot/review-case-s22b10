@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Receiver
 {
-    class HandleError
+    public class HandleError
     {
         static readonly Dictionary<string, string> mapErrorCodeWithDiscription = new Dictionary<string, string>
         {

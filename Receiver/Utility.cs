@@ -4,7 +4,7 @@ using System.IO;
 
 namespace Receiver
 {
-    internal class Utility
+    public class Utility
     {
         public static bool CreateFile(string fileName)
         {
