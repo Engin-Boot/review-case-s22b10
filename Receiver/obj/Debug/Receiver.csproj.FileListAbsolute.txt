@@ -1,0 +1,7 @@
+C:\Users\320072737\work_rt\boot\receiver\review-case-s22b10\Receiver\bin\Debug\Receiver.exe.config
+C:\Users\320072737\work_rt\boot\receiver\review-case-s22b10\Receiver\bin\Debug\Receiver.exe
+C:\Users\320072737\work_rt\boot\receiver\review-case-s22b10\Receiver\bin\Debug\Receiver.pdb
+C:\Users\320072737\work_rt\boot\receiver\review-case-s22b10\Receiver\obj\Debug\Receiver.csprojAssemblyReference.cache
+C:\Users\320072737\work_rt\boot\receiver\review-case-s22b10\Receiver\obj\Debug\Receiver.csproj.CoreCompileInputs.cache
+C:\Users\320072737\work_rt\boot\receiver\review-case-s22b10\Receiver\obj\Debug\Receiver.exe
+C:\Users\320072737\work_rt\boot\receiver\review-case-s22b10\Receiver\obj\Debug\Receiver.pdb

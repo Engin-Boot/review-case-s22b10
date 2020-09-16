@@ -5,3 +5,10 @@ C:\Users\320072737\work_rt\boot\review-case-s22b10\sender\obj\Debug\sender.cspro
 C:\Users\320072737\work_rt\boot\review-case-s22b10\sender\obj\Debug\sender.csproj.CoreCompileInputs.cache
 C:\Users\320072737\work_rt\boot\review-case-s22b10\sender\obj\Debug\sender.exe
 C:\Users\320072737\work_rt\boot\review-case-s22b10\sender\obj\Debug\sender.pdb
+C:\Users\320072737\work_rt\boot\receiver\review-case-s22b10\sender\bin\Debug\sender.exe.config
+C:\Users\320072737\work_rt\boot\receiver\review-case-s22b10\sender\bin\Debug\sender.exe
+C:\Users\320072737\work_rt\boot\receiver\review-case-s22b10\sender\bin\Debug\sender.pdb
+C:\Users\320072737\work_rt\boot\receiver\review-case-s22b10\sender\obj\Debug\sender.csprojAssemblyReference.cache
+C:\Users\320072737\work_rt\boot\receiver\review-case-s22b10\sender\obj\Debug\sender.csproj.CoreCompileInputs.cache
+C:\Users\320072737\work_rt\boot\receiver\review-case-s22b10\sender\obj\Debug\sender.exe
+C:\Users\320072737\work_rt\boot\receiver\review-case-s22b10\sender\obj\Debug\sender.pdb
