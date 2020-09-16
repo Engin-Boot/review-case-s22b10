@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -28,7 +28,7 @@ namespace ConsoleApp1
                 string[] words = line.Split(',');
                 try
                 {
-                    CSVDataManipulator.AddDataInList(words[0], words[1],"",fileContent);
+                    CSVDataManipulator.AddDataInList(words[0], words[1],words[2],fileContent);
                 }
                 catch (Exception)
                 {
@@ -44,16 +44,14 @@ namespace ConsoleApp1
             string line;
             while ((line = Console.ReadLine()) != null)
             {
-                if (HandleError.IfErrorLogInConsole(line))
-                {
-                    break;
-                }
+                HandleError.IfErrorLogInConsole(line);
                 String[] words= line.Split();
                 string date = StringPreProcessor.ReturnStringIfStringIsDate(words[0]); 
                 foreach (string word in words)
                 {
                     string stringOnly = StringPreProcessor.RemoveSymbolsAndReturnString(word);
-                    if (StringPreProcessor.IsValidString(word, stringOnly))
+                    bool isStringValid = StringPreProcessor.IsValidString(word, stringOnly);
+                    if (isStringValid)
                     {
                         try
                         {
