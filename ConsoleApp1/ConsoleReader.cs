@@ -12,14 +12,14 @@ namespace ConsoleApp1
         StreamReadWrite srw = new StreamReadWrite();
         public Dictionary<string, CSVDataStructure> Reader(string filePath)
         {
-            var file_content = new Dictionary<string, CSVDataStructure>(); ;
+            var fileContent = new Dictionary<string, CSVDataStructure>(); ;
             if (Utility.CreateFile(filePath))
             {
                 StreamReader sr = srw.StreamReturnObject(filePath);
-                file_content = Utility.ReadFromFile(sr, file_content);
+                fileContent = Utility.ReadFromFile(sr, fileContent);
             }
-            file_content = Utility.ReadFromConsole(file_content);
-            return file_content;
+            fileContent = Utility.ReadFromConsole(fileContent);
+            return fileContent;
 
         }
 

@@ -10,14 +10,20 @@ namespace ConsoleApp1
 {
     class StringPreProcessor
     {
+        private static bool IsStringIsNull(string word)
+        {
+            return (word.Length == 0);
+        }
         public static bool IsValidString(string word, string stringOnly)
         {
-            if (!StringPreProcessor.RemoveStopWord(word)
-                            && stringOnly.Length != 0 && !StringPreProcessor.CheckStringIsDate(word))
+            bool isStopWord = RemoveStopWord(word);
+            bool isDate = CheckStringIsDate(word);
+            bool isStringNull = IsStringIsNull(word);
+            if (isStopWord == isDate == isStringNull == false)
                 return true;
             return false;
         }
-        public static bool CheckStringIsDate(string date)
+        private static bool CheckStringIsDate(string date)
         {
             DateTime dateValue;
             return DateTime.TryParse(date, out dateValue);
@@ -30,21 +36,34 @@ namespace ConsoleApp1
             else
                 return "";
         }
+        private static bool IsDigit(char letter)
+        {
+            return (letter >= '0' && letter <= '9');
+        }
+        private static bool IsAlphabet(char letter)
+        {
+            return ((letter >= 'A' && letter <= 'Z') || (letter >= 'a' && letter <= 'z'));
+        }
+        private static bool IsSymbol(char letter)
+        {
+            return (letter == '.' || letter == '_' || letter == '-');
+        }
         public static string RemoveSymbolsAndReturnString(string word)
         {
             StringBuilder stringOnly = new StringBuilder();
             foreach (char letter in word)
             {
-                if ((letter >= '0' && letter <= '9') ||
-                    (letter >= 'A' && letter <= 'Z') || (letter >= 'a' && letter <= 'z')
-                    || letter == '.' || letter == '_' || letter == '-')
+                bool isDigit = IsDigit(letter);
+                bool isAlphabet = IsAlphabet(letter);
+                bool isSymbol = IsSymbol(letter);
+                if (isDigit == isAlphabet == isSymbol == true)
                 {
                     stringOnly.Append(letter);
                 }
             }
             return stringOnly.ToString().ToLower();
         }
-        public static bool RemoveStopWord(string word)
+        private static bool RemoveStopWord(string word)
         {
             StreamReadWrite srw = new StreamReadWrite();
             string filePath = "C:\\Users\\320089145\\trainging\\ConsoleApp1\\ConsoleApp1\\bin\\Debug\\stopwords.csv";

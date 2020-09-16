@@ -18,20 +18,20 @@ namespace ConsoleApp1
             CSVDataStructure csvObj = new CSVDataStructure();
             foreach (var enter in csvObj.date)
             {
-                if (enter == date)
+                if (enter == date == true)
                 {
                     return;
                 }
             }
             csvObj.date.Add(date);
         }
-        internal static void AddDataInList(string word, string wordCount, string date,
-            Dictionary<string, CSVDataStructure> file_contents)
+        public static void AddDataInList(string word, string wordCount, string date,
+            Dictionary<string, CSVDataStructure> fileContent)
         {
             CSVDataStructure listObj = new CSVDataStructure();
             listObj.date.Add(date);
             listObj.wordCount = wordCount;
-            file_contents.Add(word, listObj);
+            fileContent.Add(word, listObj);
         }
     }
 

@@ -21,13 +21,11 @@ namespace ConsoleApp1
                     StringBuilder dateList = new StringBuilder();
                     foreach (var entry in item.Value.date)
                     {
-                        dateList.AppendLine(string.Join(",",entry));
+                        dateList.AppendLine(string.Join(",", entry));
                     }
-                    var dataFormat = string.Format("{0},{1},{2}", item.Key, item.Value.wordCount, dateList);
-                    wordAndWordCount.AppendLine(dataFormat);
+                    writer.Write("{0},{1},{2}", item.Key, item.Value.wordCount, dateList);
                 }
             }
-            System.IO.File.WriteAllText(filePath, wordAndWordCount.ToString());
         }
     }
 }
