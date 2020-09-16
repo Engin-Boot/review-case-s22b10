@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
-using System.Linq;
+
 
 namespace ConsoleApp1
 {
@@ -51,7 +50,7 @@ namespace ConsoleApp1
                 {
                     string stringOnly = StringPreProcessor.RemoveSymbolsAndReturnString(word);
                     bool isStringValid = StringPreProcessor.IsValidString(word, stringOnly);
-                    if (isStringValid)
+                    if (isStringValid == true)
                     {
                         try
                         {

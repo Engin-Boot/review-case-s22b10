@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.IO;
-using ConsoleApp1;
 
 namespace ConsoleApp1
 {
@@ -75,33 +71,44 @@ namespace ConsoleApp1
             bool isSymbolIsUnderScore = IsSymbolIsUnderScore(letter);
             return (isSymbolIsDash || isSymbolIsDot || isSymbolIsUnderScore);
         }
+
+        private static bool IsLetterIsAppended(char letter)
+        {
+            bool isDigit = IsDigit(letter);
+            bool isAlphabet = IsAlphabet(letter);
+            bool isSymbol = IsSymbol(letter);
+            return (isDigit || isAlphabet || isSymbol);
+        }
         public static string RemoveSymbolsAndReturnString(string word)
         {
             StringBuilder stringOnly = new StringBuilder();
             foreach (char letter in word)
             {
-                bool isDigit = IsDigit(letter);
-                bool isAlphabet = IsAlphabet(letter);
-                bool isSymbol = IsSymbol(letter);
-                if (isDigit || isAlphabet || isSymbol )
+                bool isLetterIsAppended = IsLetterIsAppended(letter);
+                if (isLetterIsAppended == true)
                 {
                     stringOnly.Append(letter);
                 }
             }
             return stringOnly.ToString().ToLower();
         }
+        private static bool IsWordInStopWordFile(string word, string line)
+        {
+            return (line.Contains(word));
+        }
         private static bool RemoveStopWord(string word)
         {
             StreamReadWrite srw = new StreamReadWrite();
             string filePath = "C:\\Users\\320089145\\trainging\\ConsoleApp1\\ConsoleApp1\\bin\\Debug\\stopwords.csv";
-            if (File.Exists(filePath))
+            if (File.Exists(filePath) == true)
             {
                 StreamReader sr = srw.StreamReturnObject(filePath);
                 string line;
                 while ((line = sr.ReadLine()) != null)
                 {
                     string[] words = line.Split(',');
-                    if (words[0].Contains(word))
+                    bool isWordInStopWordFile = IsWordInStopWordFile(word, words[0]);
+                    if (isWordInStopWordFile == true)
                     {
                         sr.Close();
                         return true;
