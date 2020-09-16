@@ -12,8 +12,8 @@ namespace sender.Test
         {
             var output = ConsolerReaderForTest();
             Sender.Main(new string[] { "" });
-            var expected_result = "2(0xF)";
-            Assert.Equal(expected_result, output.ToString());
+            var expectedResult = "2(0xF)";
+            Assert.Equal(expectedResult, output.ToString());
             output.Close();
         }
 
@@ -23,13 +23,10 @@ namespace sender.Test
             var csvFile = CreateDummyCsv("test-sender.csv");
             var expectedResult = "2(0xA)";
             var output = ConsolerReaderForTest();
-            Sender.Main(new string[] { csvFile, "invalid" });
-            Assert.Equal(expectedResult, output.ToString());
+            Sender.Main(new[] { csvFile, "invalid" });
+            Assert.Equal(expected: expectedResult, actual: output.ToString());
             output.Close();
         }
-        public void Dispose()
-        {
-            RemoveCsvFile("test-sender.csv");
-        }
+        public void Dispose() => RemoveCsvFile("test-sender.csv");
     }
 }

@@ -1,10 +1,10 @@
 ﻿using System.Text;
 using System.IO;
-using System;
+using static System.Console;
 
 namespace sender.Test
 {
-    class Utility
+    public class Utility
     {
         public static string GetDummyCsvPath(string csvFileName)
         {
@@ -45,7 +45,7 @@ namespace sender.Test
         public static StringWriter ConsolerReaderForTest()
         {
             var output = new StringWriter();
-            Console.SetOut(output);
+            SetOut(output);
             return output;
         }
         
