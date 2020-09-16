@@ -13,11 +13,7 @@ namespace ConsoleApp1
             {
                 foreach (var item in fileContent)
                 {
-                    StringBuilder dateList = new StringBuilder();
-                    foreach (var entry in item.Value.date)
-                    {
-                        writer.WriteLine("{0},{1},{2}", item.Key, item.Value.wordCount, entry);
-                    }
+                        writer.WriteLine("{0},{1}", item.Key, item.Value.wordCount);
                 }
             }
         }
