@@ -37,5 +37,19 @@ namespace Receiver.Test
             Console.SetOut(output);
             return output;
         }
+        public static string GetDummyCsvPath(string csvFileName)
+        {
+            string path = Directory.GetCurrentDirectory();
+            var directoryInfo = Directory.GetParent(path).Parent;
+            if (directoryInfo != null)
+                return Path.Combine(directoryInfo.Parent.FullName, csvFileName);
+            return null;
+        }
+        public static void RemoveCsvFile(string csvFileName)
+        {
+            var csvpath = GetDummyCsvPath(csvFileName);
+            if (!File.Exists(csvpath)) return;
+            File.Delete(csvpath);
+        }
     }
 }
