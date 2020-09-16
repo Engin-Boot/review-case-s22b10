@@ -60,7 +60,7 @@ namespace ConsoleApp1
                         {
                             var mapedObj = fileContent[stringOnly];
                             mapedObj.wordCount = (int.Parse(mapedObj.wordCount) + 1).ToString();
-                            CSVDataManipulator.AppendDateInListIfNotInList(date);
+                            CSVDataManipulator.AppendDateInListIfNotInList(date, mapedObj);
                             fileContent[stringOnly] = mapedObj;
                         }
                     }
