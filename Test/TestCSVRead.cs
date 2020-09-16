@@ -8,10 +8,14 @@ namespace sender.Test
     [Collection("Sender")]
     public class TestCSVRead : IDisposable
     {
+        CSVReader csvread;
+        public TestCSVRead()
+        {
+            csvread = new CSVReader();
+        }
         [Fact]
         public void TestWriteWordOnConsoleWithNoColFilter()
         {
-            CSVReader csvread = new CSVReader();
             var filename = "testcsvreader.csv";
             CreateDummyCSV(filename);
             using (var sr = CreateStreamReaderDummyCSV(filename))
@@ -26,7 +30,6 @@ namespace sender.Test
         [Fact]
         public void TestWriteWordOnConsoleWithColFilter()
         {
-            CSVReader csvread = new CSVReader();
             var filename = "testcsvreader.csv";
             CreateDummyCSV(filename);
             using (var sr = CreateStreamReaderDummyCSV(filename))
@@ -41,7 +44,7 @@ namespace sender.Test
         [Fact]
         public void TestWriteWordOnConsoleForNoColData()
         {
-            CSVReader csvread = new CSVReader();
+            
             var filename = "testcsvreader.csv";
             CreateDummyCSV(filename);
             using (var sr = CreateStreamReaderDummyCSV(filename))
@@ -52,7 +55,13 @@ namespace sender.Test
                 Assert.Equal(expected_result, output.ToString());
                 output.Close();
             }
-            
+        }
+        [Fact]
+        public void TestSplitRowBasedOnSeperatorWithNoSeperator()
+        {
+            string[] expected_result = { "" };
+            string[] actual_result = csvread.SplitRowBasedOnSeperator("Demo String", ',');
+            Assert.Equal(expected_result, actual_result);
         }
         public void Dispose()
         {
