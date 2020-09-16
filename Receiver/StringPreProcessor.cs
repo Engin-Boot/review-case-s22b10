@@ -4,11 +4,12 @@ using System.IO;
 
 namespace Receiver
 {
-    class StringPreProcessor
+    public class StringPreProcessor
     {
         private static bool IsStringIsNull(string word)
         {
-            return (word.Length == 0);
+            //return string.IsNullOrEmpty(word);
+            return (word == null);
         }
         public static bool IsValidString(string word)
         {
@@ -27,7 +28,7 @@ namespace Receiver
         {
             if (CheckStringIsDate(date))
                 return date;
-            return "";
+            return null;
         }
         private static bool IsDigit(char letter)
         {

@@ -1,18 +1,22 @@
-﻿using Receiver;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Xunit;
+﻿using Xunit;
 
 namespace Receiver.Test
 {
-    /*public class TestCsvDataProcessor
+    public class TestCsvDataProcessor
     {
-        [Fact]
-       *//* public void TestAppendDateInListIfNotInList()
+        CsvDataStructure csvData;
+        public TestCsvDataProcessor()
         {
-            CSVDataManipulator.AppendDateInListIfNotInList("04-02-2017");
+            csvData = new CsvDataStructure();
+        }
 
-        }*//*
-    }*/
+        [Fact]
+        public void TestAppendDateInListIfNotInList()
+        {
+            CsvDataManipulator.AppendDateInListIfNotInList("04/02/2020", csvData);
+            CsvDataManipulator.AppendDateInListIfNotInList("07/02/2020", csvData);
+            CsvDataManipulator.AppendDateInListIfNotInList("09/02/2020", csvData);
+            Assert.NotNull(csvData.Date);
+        }
+    }
 }
