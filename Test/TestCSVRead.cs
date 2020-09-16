@@ -60,7 +60,7 @@ namespace sender.Test
         public void TestSplitRowBasedOnSeperatorWithNoSeperator()
         {
             string[] expected_result = { "" };
-            string[] actual_result = csvread.SplitRowBasedOnSeperator("Demo String", ',');
+            string[] actual_result = csvread.SplitRowBasedOnSeperator("", ',');
             Assert.Equal(expected_result, actual_result);
         }
         public void Dispose()
