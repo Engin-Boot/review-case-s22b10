@@ -8,7 +8,6 @@ namespace Receiver
     {
         private static bool IsStringIsNull(string word)
         {
-            //return string.IsNullOrEmpty(word);
             return (word == null);
         }
         public static bool IsValidString(string word)
