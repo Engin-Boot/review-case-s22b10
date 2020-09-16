@@ -21,15 +21,13 @@ namespace Receiver
         }
         private static bool CheckStringIsDate(string date)
         {
-            return DateTime.TryParse(date, out DateTime dateValue);
+            return DateTime.TryParse(date, out var dateValue);
         }
         public static string ReturnStringIfStringIsDate(string date)
         {
-
             if (CheckStringIsDate(date))
                 return date;
-            else
-                return "";
+            return "";
         }
         private static bool IsDigit(char letter)
         {
@@ -46,8 +44,8 @@ namespace Receiver
         }
         private static bool IsAlphabet(char letter)
         {
-            bool isAlpabetinLowerCase = IsAlphabetInLowerCase(letter);
-            bool isAlphabetinUpperCase = IsAlphabetInUpperCase(letter);
+            var isAlpabetinLowerCase = IsAlphabetInLowerCase(letter);
+            var isAlphabetinUpperCase = IsAlphabetInUpperCase(letter);
             return (isAlpabetinLowerCase || isAlphabetinUpperCase);
         }
 
@@ -65,9 +63,9 @@ namespace Receiver
         }
         private static bool IsSymbol(char letter)
         {
-            bool isSymbolIsDot = IsSymbolIsDot(letter);
-            bool isSymbolIsDash = IsSymbolIsDash(letter);
-            bool isSymbolIsUnderScore = IsSymbolIsUnderScore(letter);
+            var isSymbolIsDot = IsSymbolIsDot(letter);
+            var isSymbolIsDash = IsSymbolIsDash(letter);
+            var isSymbolIsUnderScore = IsSymbolIsUnderScore(letter);
             return (isSymbolIsDash || isSymbolIsDot || isSymbolIsUnderScore);
         }
 
@@ -83,7 +81,7 @@ namespace Receiver
             StringBuilder stringOnly = new StringBuilder();
             foreach (char letter in word)
             {
-                bool isLetterIsAppended = IsLetterIsAppended(letter);
+                var isLetterIsAppended = IsLetterIsAppended(letter);
                 if (isLetterIsAppended)
                 {
                     stringOnly.Append(letter);
@@ -106,7 +104,7 @@ namespace Receiver
                 string line;
                 while ((line = sr.ReadLine()) != null)
                 {
-                    string[] words = line.Split(',');
+                    var words = line.Split(',');
                     bool isWordInStopWordFile = IsWordInStopWordFile(word, words[0]);
                     if (isWordInStopWordFile)
                     {

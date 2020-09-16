@@ -3,15 +3,13 @@ using System.IO;
 
 namespace Receiver
 {
-
     public class StreamReadWrite
     {
         public StreamReader StreamReturnObject(string fileName)
         {
-
             try
             {
-                StreamReader sr = new StreamReader(fileName);
+                var sr = new StreamReader(fileName);
                 return sr;
             }
             catch (Exception)
@@ -20,8 +18,6 @@ namespace Receiver
                 Environment.Exit(0);
                 return null;
             }
-
-
         }
     }
 }

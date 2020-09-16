@@ -4,9 +4,9 @@ using System.IO;
 
 namespace Receiver
 {
-    class CSVWriter
+    class CsvWriter
     {
-        internal void WriteOnCSV(string filePath, Dictionary<string, CSVDataStructure> fileContent)
+        internal void WriteOnCSV(string filePath, Dictionary<string, CsvDataStructure> fileContent)
         {
             using (var writer = new StreamWriter(filePath))
             {

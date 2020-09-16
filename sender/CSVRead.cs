@@ -46,10 +46,10 @@ namespace sender
             while (!reader.EndOfStream)
             {
                 var row = reader.ReadLine();
-                var comment_string = SplitRowBasedOnSeperator(row, ',');
-                for (var column = 0; column < comment_string.Length; column++)
+                var commentString = SplitRowBasedOnSeperator(row, ',');
+                for (var column = 0; column < commentString.Length; column++)
                 {
-                    Console.Write(comment_string[column] + " ");
+                    Console.Write(commentString[column] + " ");
                 }
                 Console.WriteLine();
             }
@@ -57,7 +57,6 @@ namespace sender
 
         private void WriteWordOnConsoleWithColumnFilter(StreamReader reader, int col_filter)
         {
-
             while (!reader.EndOfStream)
             {
                 var row = reader.ReadLine();
