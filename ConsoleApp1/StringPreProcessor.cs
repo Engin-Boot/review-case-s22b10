@@ -117,6 +117,7 @@ namespace ConsoleApp1
                 }
                 sr.Close();
             }
+            else
             return false;
         }
     }
