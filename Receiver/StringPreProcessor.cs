@@ -2,7 +2,7 @@
 using System.Text;
 using System.IO;
 
-namespace ConsoleApp1
+namespace Receiver
 {
     class StringPreProcessor
     {
