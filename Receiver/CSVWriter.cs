@@ -16,9 +16,8 @@ namespace ConsoleApp1
                     StringBuilder dateList = new StringBuilder();
                     foreach (var entry in item.Value.date)
                     {
-                        dateList.AppendLine(string.Join(",", entry));
+                        writer.WriteLine("{0},{1},{2}", item.Key, item.Value.wordCount, entry);
                     }
-                    writer.Write("{0},{1},{2}", item.Key, item.Value.wordCount, dateList);
                 }
             }
         }
