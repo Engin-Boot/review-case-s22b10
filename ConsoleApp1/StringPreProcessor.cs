@@ -40,13 +40,40 @@ namespace ConsoleApp1
         {
             return (letter >= '0' && letter <= '9');
         }
+        private static bool IsAlphabetInUpperCase(char letter)
+        {
+            return (letter >= 'A' && letter <= 'Z');
+        }
+
+        private static bool IsAlphabetInLowerCase(char letter)
+        {
+            return (letter >= 'a' && letter <= 'z');
+        }
         private static bool IsAlphabet(char letter)
         {
-            return ((letter >= 'A' && letter <= 'Z') || (letter >= 'a' && letter <= 'z'));
+            bool isAlpabetinLowerCase = IsAlphabetInLowerCase(letter);
+            bool isAlphabetinUpperCase = IsAlphabetInUpperCase(letter);
+            return (isAlpabetinLowerCase || isAlphabetinUpperCase);
+        }
+
+        private static bool IsSymbolIsDot(char letter)
+        {
+            return (letter == '.');
+        }
+        private static bool IsSymbolIsUnderScore(char letter)
+        {
+            return (letter == '_');
+        }
+        private static bool IsSymbolIsDash(char letter)
+        {
+            return (letter == '-'); 
         }
         private static bool IsSymbol(char letter)
         {
-            return (letter == '.' || letter == '_' || letter == '-');
+            bool isSymbolIsDot = IsSymbolIsDot(letter);
+            bool isSymbolIsDash = IsSymbolIsDash(letter);
+            bool isSymbolIsUnderScore = IsSymbolIsUnderScore(letter);
+            return (isSymbolIsDash || isSymbolIsDot || isSymbolIsUnderScore);
         }
         public static string RemoveSymbolsAndReturnString(string word)
         {
