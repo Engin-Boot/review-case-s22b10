@@ -9,9 +9,8 @@ namespace ConsoleApp1
     }
     public class CSVDataManipulator
     {
-        public static void AppendDateInListIfNotInList(string date)
+        public static void AppendDateInListIfNotInList(string date,  CSVDataStructure csvObj)
         {
-            CSVDataStructure csvObj = new CSVDataStructure();
             foreach (var enter in csvObj.date)
             {
                 if (enter == date == true)
