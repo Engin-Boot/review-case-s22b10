@@ -13,7 +13,6 @@ namespace sender.Test
         }
         public static string CreateDummyCSV(string csv_file_name)
         {
-            RemoveCSVFile(csv_file_name);
             string delimeter = ",";
             string[][] output = new string[][]{
                    new string[]{ "ReviewDate", "Comments"},
@@ -24,7 +23,6 @@ namespace sender.Test
             StringBuilder sb = new StringBuilder();
             for (int index = 0; index < length; index++)
                 sb.AppendLine(string.Join(delimeter, output[index]));
-
             var filepath = getDummyCSVPath(csv_file_name);
             File.WriteAllText(filepath, sb.ToString());
             return filepath;

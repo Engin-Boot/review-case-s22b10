@@ -29,6 +29,7 @@ namespace sender
             {
                 reader.WriteWordOnConsole(stream_reader, args[1]);
             }
+            stream_reader.Close();
         }
     }
 }

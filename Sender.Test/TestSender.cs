@@ -1,9 +1,11 @@
-﻿using Xunit;
+﻿using System;
+using Xunit;
 using static sender.Test.Utility;
 
 namespace sender.Test
 {
-    public class TestSender
+    [Collection("Sender")]
+    public class TestSender: IDisposable
     {
         
         [Fact]
@@ -13,22 +15,22 @@ namespace sender.Test
             Sender.Main(new string[] { "" });
             var expected_result = "2(0xF)";
             Assert.Equal(expected_result, output.ToString());
+            output.Close();
         }
 
         [Fact]
         public void TestMainInvalidColumnNumber()
         {
-            
-            string csv_file = CreateDummyCSV("testsender.csv");
+            string csv_file = CreateDummyCSV("test-sender.csv");
             string expected_result = "2(0xA)";
             var output = ConsolerReaderForTest();
             Sender.Main(new string[] { csv_file, "invalid" });
             Assert.Equal(expected_result, output.ToString());
-
+            output.Close();
         }
-        ~TestSender()
+        public void Dispose()
         {
-            Utility.RemoveCSVFile("testsender.csv");
+            RemoveCSVFile("test-sender.csv");
         }
     }
 }
