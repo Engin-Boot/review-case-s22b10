@@ -100,7 +100,8 @@ namespace ConsoleApp1
         {
             StreamReadWrite srw = new StreamReadWrite();
             string filePath = "C:\\Users\\320089145\\trainging\\ConsoleApp1\\ConsoleApp1\\bin\\Debug\\stopwords.csv";
-            if (File.Exists(filePath) == true)
+            bool isFilePathExist = File.Exists(filePath);
+            if (isFilePathExist == true)
             {
                 StreamReader sr = srw.StreamReturnObject(filePath);
                 string line;
