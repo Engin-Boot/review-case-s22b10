@@ -1,55 +1,53 @@
 ﻿using System.IO;
 using System;
 using System.Text;
+using System.Reflection.Metadata.Ecma335;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Receiver.Test
 {
     class ReceiverTestUtility
     {
-        public static string GetDummyCsvPathReceiver(string csvFileName)
+        public static string ToAssertableString(Dictionary<string, CsvDataStructure> dictionary)
         {
-            string path = Directory.GetCurrentDirectory();
-            var directoryInfo = Directory.GetParent(path).Parent;
-            if (directoryInfo != null)
-                return Path.Combine(directoryInfo.Parent.FullName, csvFileName);
-            return null;
+            var pairStrings = dictionary.OrderBy(p => p.Key)
+                                        .Select(p => p.Key + ": " + string.Join(", ", p.Value.WordCount));
+            return string.Join("; ", pairStrings);
         }
-        public static string CreateDummyCsvReceiver(string csvFileName)
+        public static Dictionary<string, CsvDataStructure> ReadInDicFromCsv(string filePath)
         {
-            string delimeter = ",";
-            var output = new[]
+            Dictionary<string, CsvDataStructure> fileContent = new Dictionary<string, CsvDataStructure>();
+            var sr = new StreamReader(filePath);
+            string line;
+            while ((line = sr.ReadLine()) != null)
             {
-                   new[]{ "ReviewDate", "Comments"},
-                   new[]{ "4/28/2020  10:14:00 AM", "Comment1"},
-                   new[]{ "4/27/2020  9:14:00 AM", "Comment2"}
-            };
-            var length = output.GetLength(0);
-            var sb = new StringBuilder();
-            for (int index = 0; index < length; index++)
-                sb.AppendLine(string.Join(delimeter, output[index]));
-            var filepath = GetDummyCsvPathReceiver(csvFileName);
-            File.WriteAllText(filepath, sb.ToString());
-            return filepath;
+                var words = line.Split(',');
+                try
+                {
+                    CsvDataStructure obj = ReturnClassObject(words[1]);
+                    fileContent.Add(words[0], obj);
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Error while reading the file");
+                }
+            }
+            sr.Close();
+            return fileContent;
         }
-        public static StringWriter ConsolerReaderForTest()
+        public static string CreateTestFileAndReturnFilePath(string fileName)
         {
-            var output = new StringWriter();
-            Console.SetOut(output);
-            return output;
+            string curDir = Directory.GetCurrentDirectory();
+            string filePath = Path.Combine(curDir, fileName);
+            File.Create(filePath).Close();
+            return filePath;
         }
-        public static string GetDummyCsvPath(string csvFileName)
+        public static CsvDataStructure ReturnClassObject(string wordCount)
         {
-            string path = Directory.GetCurrentDirectory();
-            var directoryInfo = Directory.GetParent(path).Parent;
-            if (directoryInfo != null)
-                return Path.Combine(directoryInfo.Parent.FullName, csvFileName);
-            return null;
-        }
-        public static void RemoveCsvFile(string csvFileName)
-        {
-            var csvpath = GetDummyCsvPath(csvFileName);
-            if (!File.Exists(csvpath)) return;
-            File.Delete(csvpath);
+            CsvDataStructure obj = new CsvDataStructure();
+            obj.WordCount = wordCount;
+            return obj;
         }
     }
 }

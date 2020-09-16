@@ -7,7 +7,7 @@ namespace Receiver.Test
         [Fact]
         public void TestIsValidString()
         {
-            bool stringIsDate = StringPreProcessor.IsValidString("04/02/2020");
+            bool stringIsDate = StringPreProcessor.IsValidString("04-02-2020");
             bool stringIsStopWord = StringPreProcessor.IsValidString("did");
             bool isValidString = StringPreProcessor.IsValidString("review");
             bool isStringNull = StringPreProcessor.IsValidString("");
