@@ -19,5 +19,8 @@ jobs:
       - name: Generate coverage report
         run: dotnet test --collect:"XPlat Code Coverage"
       
-      - name: Check Coverage
-        run: powershell ./coverage.ps1 -linerate 0.95
+      - name: Check Sender Coverage
+        run: powershell ./Coverage.ps1 -linerate 0.1 -project sender.Test
+      
+      - name: Check Receiver Coverage
+        run: powershell ./Coverage.ps1 -linerate 0.1 -project Receiver.Test
