@@ -48,7 +48,7 @@ namespace Receiver
                 foreach (string word in words)
                 {
                     string stringOnly = StringPreProcessor.RemoveSymbolsAndReturnString(word);
-                    bool isStringValid = StringPreProcessor.IsValidString(word, stringOnly);
+                    bool isStringValid = StringPreProcessor.IsValidString(word);
                     if (isStringValid)
                     {
                         try
@@ -58,7 +58,7 @@ namespace Receiver
                         catch (ArgumentException)
                         {
                             var mapedObj = fileContent[stringOnly];
-                            mapedObj.wordCount = (int.Parse(mapedObj.wordCount) + 1).ToString();
+                            mapedObj.WordCount = (int.Parse(mapedObj.WordCount) + 1).ToString();
                             CSVDataManipulator.AppendDateInListIfNotInList(date, mapedObj);
                             fileContent[stringOnly] = mapedObj;
                         }

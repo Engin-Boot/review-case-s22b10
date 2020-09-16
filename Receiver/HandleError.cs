@@ -5,7 +5,7 @@ namespace Receiver
 {
     class HandleError
     {
-        static Dictionary<string, string> mapErrorCodeWithDiscription = new Dictionary<string, string>
+        static readonly Dictionary<string, string> mapErrorCodeWithDiscription = new Dictionary<string, string>
         {
             {"2(0xA)", "Error: Invalid column argument"},
             {"2(0xF)", "invalid file name" }

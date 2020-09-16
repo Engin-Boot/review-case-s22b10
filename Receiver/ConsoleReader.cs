@@ -5,7 +5,7 @@ namespace Receiver
 {
     class ConsoleReader
     {
-        StreamReadWrite srw = new StreamReadWrite();
+        readonly StreamReadWrite srw = new StreamReadWrite();
         public Dictionary<string, CSVDataStructure> Reader(string filePath)
         {
             var fileContent = new Dictionary<string, CSVDataStructure>(); ;

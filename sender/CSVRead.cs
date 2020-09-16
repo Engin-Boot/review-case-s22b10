@@ -17,17 +17,17 @@ namespace sender
                     WriteWordOnConsoleNoColumnFilter(reader);
             else
             {
-                var column_name = 0;
+                int columnName;
                 try
                 {
-                    column_name = int.Parse(col_filter);
+                    columnName = int.Parse(col_filter);
                 }
                 catch(FormatException)
                 {
                     Console.Write("2(0xA)");
                     return;
                 }
-                WriteWordOnConsoleWithColumnFilter(reader, column_name);
+                WriteWordOnConsoleWithColumnFilter(reader, columnName);
             }
             
             reader.Close();

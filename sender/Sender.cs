@@ -9,7 +9,7 @@ namespace sender
     {
         public static void Main(string[] args)
         {
-            StreamReader stream_reader = null;
+            StreamReader stream_reader;
             try
             {
                 var csv_path = args[0];

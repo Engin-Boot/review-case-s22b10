@@ -6,15 +6,15 @@ namespace sender.Test
 {
     class Utility
     {
-        public static string getDummyCSVPath(string csv_file_name)
+        public static string GetDummyCsvPath(string csvFileName)
         {
             string path = Directory.GetCurrentDirectory();
-            return Path.Combine(Directory.GetParent(path).Parent.Parent.FullName, csv_file_name);
+            return Path.Combine(Directory.GetParent(path).Parent.Parent.FullName, csvFileName);
         }
-        public static string CreateDummyCSV(string csv_file_name)
+        public static string CreateDummyCsv(string csvFileName)
         {
             string delimeter = ",";
-            string[][] output = new string[][]{
+            var output = new string[][]{
                    new string[]{ "ReviewDate", "Comments"},
                    new string[]{ "4/28/2020  10:14:00 AM", "Comment1"},
                    new string[]{ "4/27/2020  9:14:00 AM", "Comment2"}
@@ -23,21 +23,21 @@ namespace sender.Test
             StringBuilder sb = new StringBuilder();
             for (int index = 0; index < length; index++)
                 sb.AppendLine(string.Join(delimeter, output[index]));
-            var filepath = getDummyCSVPath(csv_file_name);
+            var filepath = GetDummyCsvPath(csvFileName);
             File.WriteAllText(filepath, sb.ToString());
             return filepath;
         }
-        public static void RemoveCSVFile(string csv_file_name)
+        public static void RemoveCsvFile(string csvFileName)
         {
-            var csvpath = getDummyCSVPath(csv_file_name);
+            var csvpath = GetDummyCsvPath(csvFileName);
             if (File.Exists(csvpath))
             {
                 File.Delete(csvpath);
             }
         }
-        public static StreamReader CreateStreamReaderDummyCSV(string csv_file_name)
+        public static StreamReader CreateStreamReaderDummyCsv(string csvFileName)
         {
-            return new StreamReader(getDummyCSVPath(csv_file_name));
+            return new StreamReader(GetDummyCsvPath(csvFileName));
         }
 
         public static StringWriter ConsolerReaderForTest()

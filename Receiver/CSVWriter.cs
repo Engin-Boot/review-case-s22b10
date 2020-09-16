@@ -8,12 +8,11 @@ namespace Receiver
     {
         internal void WriteOnCSV(string filePath, Dictionary<string, CSVDataStructure> fileContent)
         {
-            StringBuilder wordAndWordCount = new StringBuilder();
             using (var writer = new StreamWriter(filePath))
             {
                 foreach (var item in fileContent)
                 {
-                        writer.WriteLine("{0},{1}", item.Key, item.Value.wordCount);
+                        writer.WriteLine("{0},{1}", item.Key, item.Value.WordCount);
                 }
             }
         }

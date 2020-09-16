@@ -10,7 +10,7 @@ namespace Receiver
         {
             return (word.Length == 0);
         }
-        public static bool IsValidString(string word, string stringOnly)
+        public static bool IsValidString(string word)
         {
             bool isStopWord = RemoveStopWord(word);
             bool isDate = CheckStringIsDate(word);
@@ -21,8 +21,7 @@ namespace Receiver
         }
         private static bool CheckStringIsDate(string date)
         {
-            DateTime dateValue;
-            return DateTime.TryParse(date, out dateValue);
+            return DateTime.TryParse(date, out DateTime dateValue);
         }
         public static string ReturnStringIfStringIsDate(string date)
         {

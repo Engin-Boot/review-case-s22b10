@@ -8,7 +8,7 @@ namespace sender.Test
     public class TestSender: IDisposable
     {
         [Fact]
-        public void TestMainInvalidCSVFileName()
+        public void TestMainInvalidCsvFileName()
         {
             var output = ConsolerReaderForTest();
             Sender.Main(new string[] { "" });
@@ -20,16 +20,16 @@ namespace sender.Test
         [Fact]
         public void TestMainInvalidColumnNumber()
         {
-            string csv_file = CreateDummyCSV("test-sender.csv");
+            string csvFile = CreateDummyCsv("test-sender.csv");
             string expected_result = "2(0xA)";
             var output = ConsolerReaderForTest();
-            Sender.Main(new string[] { csv_file, "invalid" });
+            Sender.Main(new string[] { csvFile, "invalid" });
             Assert.Equal(expected_result, output.ToString());
             output.Close();
         }
         public void Dispose()
         {
-            RemoveCSVFile("test-sender.csv");
+            RemoveCsvFile("test-sender.csv");
         }
     }
 }

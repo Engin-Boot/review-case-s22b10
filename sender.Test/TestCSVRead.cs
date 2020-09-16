@@ -8,7 +8,7 @@ namespace sender.Test
     [Collection("Sender")]
     public class TestCSVRead : IDisposable
     {
-        CSVReader csvread;
+        readonly CSVReader csvread;
         public TestCSVRead()
         {
             csvread = new CSVReader();
@@ -17,22 +17,20 @@ namespace sender.Test
         public void TestWriteWordOnConsoleWithNoColFilter()
         {
             var filename = "testcsvreader.csv";
-            CreateDummyCSV(filename);
-            using (var sr = CreateStreamReaderDummyCSV(filename))
-            {
-                var output = ConsolerReaderForTest();
-                csvread.WriteWordOnConsole(sr);
-                string expected_result = "4/28/2020  10:14:00 AM Comment1 \r\n4/27/2020  9:14:00 AM Comment2 \r\n";
-                Assert.Equal(expected_result, output.ToString());
-                output.Close();
-            }
+            CreateDummyCsv(filename);
+            using var sr = CreateStreamReaderDummyCsv(filename);
+            var output = ConsolerReaderForTest();
+            csvread.WriteWordOnConsole(sr);
+            string expected_result = "4/28/2020  10:14:00 AM Comment1 \r\n4/27/2020  9:14:00 AM Comment2 \r\n";
+            Assert.Equal(expected_result, output.ToString());
+            output.Close();
         }
         [Fact]
         public void TestWriteWordOnConsoleWithColFilter()
         {
             var filename = "testcsvreader.csv";
-            CreateDummyCSV(filename);
-            using (var sr = CreateStreamReaderDummyCSV(filename))
+            CreateDummyCsv(filename);
+            using (var sr = CreateStreamReaderDummyCsv(filename))
             {
                 var output = ConsolerReaderForTest();
                 csvread.WriteWordOnConsole(sr, "0");
@@ -46,26 +44,24 @@ namespace sender.Test
         {
             
             var filename = "testcsvreader.csv";
-            CreateDummyCSV(filename);
-            using (var sr = CreateStreamReaderDummyCSV(filename))
-            {
-                var output = ConsolerReaderForTest();
-                csvread.WriteWordOnConsole(sr, "2");
-                string expected_result = "";
-                Assert.Equal(expected_result, output.ToString());
-                output.Close();
-            }
+            CreateDummyCsv(filename);
+            using StreamReader sr = CreateStreamReaderDummyCsv(filename);
+            var output = ConsolerReaderForTest();
+            csvread.WriteWordOnConsole(sr, "2");
+            string expected_result = "";
+            Assert.Equal(expected_result, output.ToString());
+            output.Close();
         }
         [Fact]
         public void TestSplitRowBasedOnSeperatorWithNoSeperator()
         {
-            string[] expected_result = { "" };
-            string[] actual_result = csvread.SplitRowBasedOnSeperator("", ',');
-            Assert.Equal(expected_result, actual_result);
+            string[] expectedResult = { "" };
+            string[] actualResult = csvread.SplitRowBasedOnSeperator("", ',');
+            Assert.Equal(expectedResult, actualResult);
         }
         public void Dispose()
         {
-            RemoveCSVFile("testcsvreader.csv");
+            RemoveCsvFile("testcsvreader.csv");
         }
     }
 }
