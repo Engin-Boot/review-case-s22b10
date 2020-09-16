@@ -3,7 +3,6 @@ using System.IO;
 
 namespace Receiver
 {
-
     public class StreamReadWrite
     {
         public StreamReader StreamReturnObject(string fileName)
@@ -20,8 +19,6 @@ namespace Receiver
                 Environment.Exit(0);
                 return null;
             }
-
-
         }
     }
 }

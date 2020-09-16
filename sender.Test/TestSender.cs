@@ -20,11 +20,11 @@ namespace sender.Test
         [Fact]
         public void TestMainInvalidColumnNumber()
         {
-            string csvFile = CreateDummyCsv("test-sender.csv");
-            string expected_result = "2(0xA)";
+            var csvFile = CreateDummyCsv("test-sender.csv");
+            var expectedResult = "2(0xA)";
             var output = ConsolerReaderForTest();
             Sender.Main(new string[] { csvFile, "invalid" });
-            Assert.Equal(expected_result, output.ToString());
+            Assert.Equal(expectedResult, output.ToString());
             output.Close();
         }
         public void Dispose()

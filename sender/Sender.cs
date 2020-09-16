@@ -9,11 +9,11 @@ namespace sender
     {
         public static void Main(string[] args)
         {
-            StreamReader stream_reader;
+            StreamReader streamReader;
             try
             {
-                var csv_path = args[0];
-                stream_reader = new StreamReader(csv_path);
+                var csvPath = args[0];
+                streamReader = new StreamReader(csvPath);
             }
             catch (Exception)
             {
@@ -23,13 +23,13 @@ namespace sender
             CSVReader reader = new CSVReader();
             if (args.Length <= 1)
             {
-                reader.WriteWordOnConsole(stream_reader);
+                reader.WriteWordOnConsole(streamReader);
             }
             else
             {
-                reader.WriteWordOnConsole(stream_reader, args[1]);
+                reader.WriteWordOnConsole(streamReader, args[1]);
             }
-            stream_reader.Close();
+            streamReader.Close();
         }
     }
 }
