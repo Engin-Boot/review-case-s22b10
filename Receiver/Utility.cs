@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-
 namespace Receiver
 {
     internal class Utility
@@ -50,7 +49,7 @@ namespace Receiver
                 {
                     string stringOnly = StringPreProcessor.RemoveSymbolsAndReturnString(word);
                     bool isStringValid = StringPreProcessor.IsValidString(word, stringOnly);
-                    if (isStringValid == true)
+                    if (isStringValid)
                     {
                         try
                         {
