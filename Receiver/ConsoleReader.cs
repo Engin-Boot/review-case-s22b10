@@ -3,7 +3,7 @@ using System.IO;
 
 namespace Receiver
 {
-    class ConsoleReader
+    public class ConsoleReader
     {
         StreamReadWrite srw = new StreamReadWrite();
         public Dictionary<string, CSVDataStructure> Reader(string filePath)

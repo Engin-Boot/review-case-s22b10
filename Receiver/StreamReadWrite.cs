@@ -17,7 +17,6 @@ namespace Receiver
             catch (Exception)
             {
                 Console.WriteLine("Error: Unable to read or write file");
-                Environment.Exit(0);
                 return null;
             }
 
