@@ -7,7 +7,6 @@ namespace sender.Test
     [Collection("Sender")]
     public class TestSender: IDisposable
     {
-        
         [Fact]
         public void TestMainInvalidCSVFileName()
         {

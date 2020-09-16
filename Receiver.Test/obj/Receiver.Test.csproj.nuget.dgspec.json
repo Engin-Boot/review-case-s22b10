@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\320072737\\work_rt\\boot\\review-case-s22b10\\sender.Test\\sender.Test.csproj": {}
+    "C:\\Users\\320072737\\work_rt\\boot\\receiver\\review-case-s22b10\\Receiver.Test\\Receiver.Test.csproj": {}
   },
   "projects": {
-    "C:\\Users\\320072737\\work_rt\\boot\\review-case-s22b10\\sender.Test\\sender.Test.csproj": {
+    "C:\\Users\\320072737\\work_rt\\boot\\receiver\\review-case-s22b10\\Receiver.Test\\Receiver.Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\320072737\\work_rt\\boot\\review-case-s22b10\\sender.Test\\sender.Test.csproj",
-        "projectName": "sender.Test",
-        "projectPath": "C:\\Users\\320072737\\work_rt\\boot\\review-case-s22b10\\sender.Test\\sender.Test.csproj",
+        "projectUniqueName": "C:\\Users\\320072737\\work_rt\\boot\\receiver\\review-case-s22b10\\Receiver.Test\\Receiver.Test.csproj",
+        "projectName": "Receiver.Test",
+        "projectPath": "C:\\Users\\320072737\\work_rt\\boot\\receiver\\review-case-s22b10\\Receiver.Test\\Receiver.Test.csproj",
         "packagesPath": "C:\\Users\\320072737\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\320072737\\work_rt\\boot\\review-case-s22b10\\sender.Test\\obj\\",
+        "outputPath": "C:\\Users\\320072737\\work_rt\\boot\\receiver\\review-case-s22b10\\Receiver.Test\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\320072737\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -27,8 +27,8 @@
         "frameworks": {
           "netcoreapp3.0": {
             "projectReferences": {
-              "C:\\Users\\320072737\\work_rt\\boot\\review-case-s22b10\\Sender\\Sender.csproj": {
-                "projectPath": "C:\\Users\\320072737\\work_rt\\boot\\review-case-s22b10\\Sender\\Sender.csproj"
+              "C:\\Users\\320072737\\work_rt\\boot\\receiver\\review-case-s22b10\\Receiver\\Receiver.csproj": {
+                "projectPath": "C:\\Users\\320072737\\work_rt\\boot\\receiver\\review-case-s22b10\\Receiver\\Receiver.csproj"
               }
             }
           }
@@ -92,11 +92,11 @@
         }
       }
     },
-    "C:\\Users\\320072737\\work_rt\\boot\\review-case-s22b10\\sender\\sender.csproj": {
+    "C:\\Users\\320072737\\work_rt\\boot\\receiver\\review-case-s22b10\\Receiver\\Receiver.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\Users\\320072737\\work_rt\\boot\\review-case-s22b10\\sender\\sender.csproj",
-        "projectName": "sender",
-        "projectPath": "C:\\Users\\320072737\\work_rt\\boot\\review-case-s22b10\\sender\\sender.csproj"
+        "projectUniqueName": "C:\\Users\\320072737\\work_rt\\boot\\receiver\\review-case-s22b10\\Receiver\\Receiver.csproj",
+        "projectName": "Receiver",
+        "projectPath": "C:\\Users\\320072737\\work_rt\\boot\\receiver\\review-case-s22b10\\Receiver\\Receiver.csproj"
       },
       "frameworks": {
         "net472": {}

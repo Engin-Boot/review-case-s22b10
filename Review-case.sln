@@ -7,7 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sender", "sender\sender.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Receiver", "Receiver\Receiver.csproj", "{DE810218-BB98-4892-A303-B8132585AE3F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{DE810218-BB98-4892-A303-B8132585AE3F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sender.Test", "sender.Test\sender.Test.csproj", "{DE810218-BB98-4892-A303-B8132585AE3F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Receiver.Test", "Receiver.Test\Receiver.Test.csproj", "{DE810218-BB98-4892-A303-B8132585AE3F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

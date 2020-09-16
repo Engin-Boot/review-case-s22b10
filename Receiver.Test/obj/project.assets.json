@@ -1963,13 +1963,13 @@
           "build/netcoreapp1.0/xunit.runner.visualstudio.props": {}
         }
       },
-      "sender/1.0.0": {
+      "Receiver/1.0.0": {
         "type": "project",
         "compile": {
-          "bin/placeholder/sender.dll": {}
+          "bin/placeholder/Receiver.dll": {}
         },
         "runtime": {
-          "bin/placeholder/sender.dll": {}
+          "bin/placeholder/Receiver.dll": {}
         }
       }
     }
@@ -6579,17 +6579,17 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
-    "sender/1.0.0": {
+    "Receiver/1.0.0": {
       "type": "project",
-      "path": "../sender/sender.csproj",
-      "msbuildProject": "../sender/sender.csproj"
+      "path": "../Receiver/Receiver.csproj",
+      "msbuildProject": "../Receiver/Receiver.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.0": [
       "Microsoft.NET.Test.Sdk >= 16.2.0",
+      "Receiver >= 1.0.0",
       "coverlet.collector >= 1.0.1",
-      "sender >= 1.0.0",
       "xunit >= 2.4.0",
       "xunit.runner.visualstudio >= 2.4.0"
     ]
@@ -6600,11 +6600,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\320072737\\work_rt\\boot\\receiver\\review-case-s22b10\\Test\\Test.csproj",
-      "projectName": "Test",
-      "projectPath": "C:\\Users\\320072737\\work_rt\\boot\\receiver\\review-case-s22b10\\Test\\Test.csproj",
+      "projectUniqueName": "C:\\Users\\320072737\\work_rt\\boot\\receiver\\review-case-s22b10\\Receiver.Test\\Receiver.Test.csproj",
+      "projectName": "Receiver.Test",
+      "projectPath": "C:\\Users\\320072737\\work_rt\\boot\\receiver\\review-case-s22b10\\Receiver.Test\\Receiver.Test.csproj",
       "packagesPath": "C:\\Users\\320072737\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\320072737\\work_rt\\boot\\receiver\\review-case-s22b10\\Test\\obj\\",
+      "outputPath": "C:\\Users\\320072737\\work_rt\\boot\\receiver\\review-case-s22b10\\Receiver.Test\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\320072737\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6620,8 +6620,8 @@
       "frameworks": {
         "netcoreapp3.0": {
           "projectReferences": {
-            "C:\\Users\\320072737\\work_rt\\boot\\receiver\\review-case-s22b10\\Sender\\Sender.csproj": {
-              "projectPath": "C:\\Users\\320072737\\work_rt\\boot\\receiver\\review-case-s22b10\\Sender\\Sender.csproj"
+            "C:\\Users\\320072737\\work_rt\\boot\\receiver\\review-case-s22b10\\Receiver\\Receiver.csproj": {
+              "projectPath": "C:\\Users\\320072737\\work_rt\\boot\\receiver\\review-case-s22b10\\Receiver\\Receiver.csproj"
             }
           }
         }
