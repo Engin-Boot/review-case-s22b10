@@ -3,15 +3,13 @@ using System.IO;
 
 namespace Receiver
 {
-
     public class StreamReadWrite
     {
         public StreamReader StreamReturnObject(string fileName)
         {
-
             try
             {
-                StreamReader sr = new StreamReader(fileName);
+                var sr = new StreamReader(fileName);
                 return sr;
             }
             catch (Exception)
@@ -19,8 +17,6 @@ namespace Receiver
                 Console.WriteLine("Error: Unable to read or write file");
                 return null;
             }
-
-
         }
     }
 }

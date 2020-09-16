@@ -1,33 +1,32 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Receiver
 {
-    public class CSVDataStructure
+    public class CsvDataStructure
     {
-        public string wordCount { get; set; }
-        public List<string> date = new List<string>();
+        public string WordCount { get; set; }
+        public List<string> Date = new List<string>();
     }
-    public class CSVDataManipulator
+
+    public class CsvDataManipulator
     {
-        public static void AppendDateInListIfNotInList(string date,  CSVDataStructure csvObj)
+        public static void AppendDateInListIfNotInList(string date, CsvDataStructure csvObj)
         {
-            foreach (var enter in csvObj.date)
+            if (csvObj.Date.Any(enter => enter == date == true))
             {
-                if (enter == date == true)
-                {
-                    return;
-                }
+                return;
             }
-            csvObj.date.Add(date);
+            csvObj.Date.Add(date);
         }
+
         public static void AddDataInList(string word, string wordCount, string date,
-            Dictionary<string, CSVDataStructure> fileContent)
+            Dictionary<string, CsvDataStructure> fileContent)
         {
-            CSVDataStructure listObj = new CSVDataStructure();
-            listObj.date.Add(date);
-            listObj.wordCount = wordCount;
+            var listObj = new CsvDataStructure();
+            listObj.Date.Add(date);
+            listObj.WordCount = wordCount;
             fileContent.Add(word, listObj);
         }
     }
-
 }

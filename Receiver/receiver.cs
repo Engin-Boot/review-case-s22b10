@@ -6,9 +6,9 @@ namespace Receiver
     {
         public static void Main()
         {
-            ConsoleReader reader = new ConsoleReader();
-            Dictionary<string, CSVDataStructure> fileContent = reader.Reader("output.csv");
-            CSVWriter csvwrite = new CSVWriter();
+            var reader = new ConsoleReader();
+            Dictionary<string, CsvDataStructure> fileContent = reader.Reader("output.csv");
+            var csvwrite = new CsvWriter();
             csvwrite.WriteOnCSV
                 ("output.csv", fileContent);
         }

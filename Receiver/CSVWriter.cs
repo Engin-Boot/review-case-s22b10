@@ -4,16 +4,15 @@ using System.IO;
 
 namespace Receiver
 {
-    class CSVWriter
+    class CsvWriter
     {
-        internal void WriteOnCSV(string filePath, Dictionary<string, CSVDataStructure> fileContent)
+        internal void WriteOnCSV(string filePath, Dictionary<string, CsvDataStructure> fileContent)
         {
-            StringBuilder wordAndWordCount = new StringBuilder();
             using (var writer = new StreamWriter(filePath))
             {
                 foreach (var item in fileContent)
                 {
-                        writer.WriteLine("{0},{1}", item.Key, item.Value.wordCount);
+                        writer.WriteLine("{0},{1}", item.Key, item.Value.WordCount);
                 }
             }
         }
