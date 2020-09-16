@@ -4,7 +4,7 @@ namespace Receiver
 {
     public class CSVDataStructure
     {
-        public string wordCount { get; set; }
+        public string WordCount { get; set; }
         public List<string> date = new List<string>();
     }
     public class CSVDataManipulator
@@ -25,7 +25,7 @@ namespace Receiver
         {
             CSVDataStructure listObj = new CSVDataStructure();
             listObj.date.Add(date);
-            listObj.wordCount = wordCount;
+            listObj.WordCount = wordCount;
             fileContent.Add(word, listObj);
         }
     }
