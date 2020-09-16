@@ -3,29 +3,28 @@ using System.Linq;
 
 namespace Receiver
 {
-    public class CSVDataStructure
+    public class CsvDataStructure
     {
         public string WordCount { get; set; }
-        public List<string> date = new List<string>();
+        public List<string> Date = new List<string>();
     }
 
-    public class CSVDataManipulator
+    public class CsvDataManipulator
     {
-        public static void AppendDateInListIfNotInList(string date, CSVDataStructure csvObj)
+        public static void AppendDateInListIfNotInList(string date, CsvDataStructure csvObj)
         {
-            if (csvObj.date.Any(enter => enter == date == true))
+            if (csvObj.Date.Any(enter => enter == date == true))
             {
                 return;
             }
-
-            csvObj.date.Add(date);
+            csvObj.Date.Add(date);
         }
 
         public static void AddDataInList(string word, string wordCount, string date,
-            Dictionary<string, CSVDataStructure> fileContent)
+            Dictionary<string, CsvDataStructure> fileContent)
         {
-            var listObj = new CSVDataStructure();
-            listObj.date.Add(date);
+            var listObj = new CsvDataStructure();
+            listObj.Date.Add(date);
             listObj.WordCount = wordCount;
             fileContent.Add(word, listObj);
         }

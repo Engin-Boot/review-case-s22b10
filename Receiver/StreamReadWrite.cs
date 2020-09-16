@@ -7,10 +7,9 @@ namespace Receiver
     {
         public StreamReader StreamReturnObject(string fileName)
         {
-
             try
             {
-                StreamReader sr = new StreamReader(fileName);
+                var sr = new StreamReader(fileName);
                 return sr;
             }
             catch (Exception)

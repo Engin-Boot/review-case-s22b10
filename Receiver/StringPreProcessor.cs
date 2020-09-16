@@ -21,7 +21,7 @@ namespace Receiver
         }
         private static bool CheckStringIsDate(string date)
         {
-            return DateTime.TryParse(date, out DateTime dateValue);
+            return DateTime.TryParse(date, out var dateValue);
         }
         public static string ReturnStringIfStringIsDate(string date)
         {

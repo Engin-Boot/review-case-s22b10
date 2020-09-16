@@ -6,19 +6,16 @@ namespace Receiver
     class ConsoleReader
     {
         readonly StreamReadWrite srw = new StreamReadWrite();
-        public Dictionary<string, CSVDataStructure> Reader(string filePath)
+        public Dictionary<string, CsvDataStructure> Reader(string filePath)
         {
-            var fileContent = new Dictionary<string, CSVDataStructure>(); ;
+            var fileContent = new Dictionary<string, CsvDataStructure>(); ;
             if (Utility.CreateFile(filePath))
             {
-                StreamReader sr = srw.StreamReturnObject(filePath);
+                var sr = srw.StreamReturnObject(filePath);
                 fileContent = Utility.ReadFromFile(sr, fileContent);
             }
             fileContent = Utility.ReadFromConsole(fileContent);
             return fileContent;
-
         }
-
-
     }
 }
