@@ -96,7 +96,7 @@ namespace Receiver
         private static bool RemoveStopWord(string word)
         {
             StreamReadWrite srw = new StreamReadWrite();
-            string filePath = "C:\\Users\\320089145\\trainging\\ConsoleApp1\\ConsoleApp1\\bin\\Debug\\stopwords.csv";
+            string filePath = "C:\\Users\\320089145\\trainging\\review-case-s22b10\\Receiver\\Properties\\stopwords.csv";
             bool isFilePathExist = File.Exists(filePath);
             if (isFilePathExist)
             {
