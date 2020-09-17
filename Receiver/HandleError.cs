@@ -21,7 +21,7 @@ namespace Receiver
                 }
             }
         }
-        public static void LogErrorInConsole(string errorCode)
+        private static void LogErrorInConsole(string errorCode)
         {
             Console.WriteLine(MapErrorCodeWithDiscription[errorCode]);
         }

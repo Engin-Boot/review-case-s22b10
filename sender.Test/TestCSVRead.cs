@@ -49,11 +49,16 @@ namespace sender.Test
             output.Close();
         }
         [Fact]
-        public void TestSplitRowBasedOnSeperatorWithNoSeperator()
+        public void TestTestWriteWordOnConsoleForNoColDataWithNoSeperator()
         {
-            string[] expectedResult = { "" };
-            string[] actualResult = _csvread.SplitRowBasedOnSeperator("", ',');
-            Assert.Equal(expectedResult, actualResult);
+            var filename = "testcsvreader.csv";
+            CreateEmptyCsv(filename);
+            using var sr = CreateStreamReaderDummyCsv(filename);
+            var output = ConsolerReaderForTest();
+            _csvread.WriteWordOnConsole(sr, "2");
+            const string expectedResult = "";
+            Assert.Equal(expectedResult, output.ToString());
+            output.Close();
         }
         public void Dispose()
         {
