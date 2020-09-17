@@ -1,8 +1,8 @@
 ﻿using System;
 using Xunit;
-using static sender.Test.Utility;
+using static sender.tests.Utility;
 
-namespace sender.Test
+namespace sender.tests
 {
     [Collection("Sender")]
     public class TestSender: IDisposable
@@ -13,7 +13,7 @@ namespace sender.Test
             var output = ConsolerReaderForTest();
             Sender.Main(new string[] { "" });
             var expectedResult = "2(0xF)";
-            Assert.Equal(expectedResult, output.ToString());
+            Assert.Equal(expectedResult, (string) output.ToString());
             output.Close();
         }
 
@@ -24,7 +24,7 @@ namespace sender.Test
             var expectedResult = "2(0xA)";
             var output = ConsolerReaderForTest();
             Sender.Main(new[] { csvFile, "invalid" });
-            Assert.Equal(expected: expectedResult, actual: output.ToString());
+            Assert.Equal(expected: expectedResult, (string) output.ToString());
             output.Close();
         }
         public void Dispose() => RemoveCsvFile("test-sender.csv");

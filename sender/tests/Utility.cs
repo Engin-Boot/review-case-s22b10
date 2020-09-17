@@ -1,8 +1,8 @@
-﻿using System.Text;
-using System.IO;
+﻿using System.IO;
+using System.Text;
 using static System.Console;
 
-namespace sender.Test
+namespace sender.tests
 {
     public static class Utility
     {
