@@ -6,17 +6,13 @@ namespace Receiver.Test
     [Collection("Receiver")]
     public class TestStreamReadWrite 
     {
-        StreamReadWrite SReadWrite;
-        public TestStreamReadWrite()
-        {
-            SReadWrite = new StreamReadWrite();
-        }
         [Fact]
         public void TestStreamReturnObject()
         {
+            StreamReadWrite sReadWrite = sReadWrite = new StreamReadWrite();
             string fileName = "text.txt";
             bool isFileExist = File.Exists(fileName);
-            StreamReader sr = SReadWrite.StreamReturnObject(fileName);
+            StreamReader sr = sReadWrite.StreamReturnObject(fileName);
             Assert.Null(sr);
         }
     }

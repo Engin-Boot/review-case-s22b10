@@ -1,19 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Xunit;
-using static Receiver.Test.ReceiverTestUtility;
+﻿using Xunit;
 
 namespace Receiver.Test
 {
     public class TestConsoleReader
     {
-        ConsoleReader reader;
-
-        public TestConsoleReader()
-        {
-            reader = new ConsoleReader();
-        }
         [Fact]
         public void TestReader()
         {

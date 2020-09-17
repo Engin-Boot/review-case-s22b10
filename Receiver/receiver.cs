@@ -8,8 +8,8 @@ namespace Receiver
         {
             var reader = new ConsoleReader();
             Dictionary<string, CsvDataStructure> fileContent = reader.Reader("output.csv");
-            var csvwrite = new CsvWriter();
-            csvwrite.WriteOnCSV
+            var csvWrite = new CsvWriter();
+            csvWrite.WriteOnCSV
                 ("output.csv", fileContent);
         }
     }

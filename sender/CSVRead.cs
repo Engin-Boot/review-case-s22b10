@@ -9,18 +9,18 @@ namespace sender
 {
     public class CSVReader
     {
-        internal void WriteWordOnConsole(StreamReader reader, [Optional] string col_filter)
+        internal void WriteWordOnConsole(StreamReader reader, [Optional] string columnFilter)
         {
             reader.ReadLine();      // Remove title of columns
             
-            if (col_filter == null)
+            if (columnFilter == null)
                     WriteWordOnConsoleNoColumnFilter(reader);
             else
             {
                 int columnName;
                 try
                 {
-                    columnName = int.Parse(col_filter);
+                    columnName = int.Parse(columnFilter);
                 }
                 catch(FormatException)
                 {
@@ -55,15 +55,15 @@ namespace sender
             }
         }
 
-        private void WriteWordOnConsoleWithColumnFilter(StreamReader reader, int col_filter)
+        private void WriteWordOnConsoleWithColumnFilter(StreamReader reader, int columnFilter)
         {
             while (!reader.EndOfStream)
             {
                 var row = reader.ReadLine();
-                var comment_string = SplitRowBasedOnSeperator(row, ',');
+                var commentString = SplitRowBasedOnSeperator(row, ',');
                 try
                 {
-                    Console.Write(comment_string[col_filter] + " ");
+                    Console.Write(commentString[columnFilter] + " ");
                 }
                 catch (IndexOutOfRangeException)
                 {

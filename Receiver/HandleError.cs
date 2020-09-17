@@ -5,7 +5,7 @@ namespace Receiver
 {
     public class HandleError
     {
-        static readonly Dictionary<string, string> mapErrorCodeWithDiscription = new Dictionary<string, string>
+        static readonly Dictionary<string, string> MapErrorCodeWithDiscription = new Dictionary<string, string>
         {
             {"2(0xA)", "Error: Invalid column argument"},
             {"2(0xF)", "invalid file name" }
@@ -13,7 +13,7 @@ namespace Receiver
 
         public static void IfErrorLogInConsole(string errorData)
         {
-            foreach (var code in mapErrorCodeWithDiscription)
+            foreach (var code in MapErrorCodeWithDiscription)
             {
                 if (errorData.Contains(code.Key))
                 {
@@ -23,7 +23,7 @@ namespace Receiver
         }
         public static void LogErrorInConsole(string errorCode)
         {
-            Console.WriteLine(mapErrorCodeWithDiscription[errorCode]);
+            Console.WriteLine(MapErrorCodeWithDiscription[errorCode]);
         }
     }
 }

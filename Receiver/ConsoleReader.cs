@@ -1,17 +1,16 @@
 ﻿using System.Collections.Generic;
-using System.IO;
 
 namespace Receiver
 {
     public class ConsoleReader
     {
-        readonly StreamReadWrite srw = new StreamReadWrite();
+        readonly StreamReadWrite _sReadWrite = new StreamReadWrite();
         public Dictionary<string, CsvDataStructure> Reader(string filePath)
         {
             var fileContent = new Dictionary<string, CsvDataStructure>(); ;
             if (Utility.CreateFile(filePath))
             {
-                var sr = srw.StreamReturnObject(filePath);
+                var sr = _sReadWrite.StreamReturnObject(filePath);
                 fileContent = Utility.ReadFromFile(sr, fileContent);
             }
             fileContent = Utility.ReadFromConsole(fileContent);
