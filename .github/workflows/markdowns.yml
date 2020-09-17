@@ -32,4 +32,4 @@ jobs:
     - name: Check goodness of writing
       run: |
         npm install -g write-good
-        npx write-good *.md
+        npx write-good ./*.md
