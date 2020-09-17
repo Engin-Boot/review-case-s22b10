@@ -47,5 +47,11 @@ namespace Receiver.Test
             obj.WordCount = wordCount;
             return obj;
         }
+        public static StringWriter ReceiverConsolerReaderForTest()
+        {
+            var outPut = new StringWriter();
+            SetOut(outPut);
+            return outPut;
+        }
     }
 }
