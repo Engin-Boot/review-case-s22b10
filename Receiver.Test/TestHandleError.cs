@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 ﻿using Xunit;
-=======
-using Xunit;
->>>>>>> 32412fe62240049afd5ed0dd4c58e3ea64938256
+
 using  static Receiver.Test.ReceiverTestUtility;
 
 namespace Receiver.Test
