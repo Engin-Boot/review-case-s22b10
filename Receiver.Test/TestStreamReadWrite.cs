@@ -9,7 +9,7 @@ namespace Receiver.Test
         [Fact]
         public void TestStreamReturnObject()
         {
-            StreamReadWrite sReadWrite = sReadWrite = new StreamReadWrite();
+            StreamReadWrite sReadWrite = new StreamReadWrite();
             string fileName = "text.txt";
             // bool isFileExist = File.Exists(fileName);
             StreamReader sr = sReadWrite.StreamReturnObject(fileName);

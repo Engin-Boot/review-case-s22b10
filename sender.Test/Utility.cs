@@ -6,14 +6,20 @@ namespace sender.Test
 {
     public static class Utility
     {
-        public static string GetDummyCsvPath(string csvFileName)
+        private static string GetDummyCsvPath(string csvFileName)
         {
             string path = Directory.GetCurrentDirectory();
             var directoryInfo = Directory.GetParent(path).Parent;
             if (directoryInfo != null)
+            {
                 if (directoryInfo.Parent != null)
                     return Path.Combine(directoryInfo.Parent.FullName, csvFileName);
-            return null;
+                return null;
+            }
+            else
+            {
+                return null;
+            }
         }
         public static string CreateDummyCsv(string csvFileName)
         {
@@ -48,6 +54,20 @@ namespace sender.Test
             var output = new StringWriter();
             SetOut(output);
             return output;
+        }
+
+        public static string CreateEmptyCsv(string fileName)
+        {
+            var filePath = GetDummyCsvPath(fileName);
+            try
+            {
+                File.Create(filePath).Close();
+                return filePath;
+            }
+            catch (IOException)
+            {
+                return null;
+            }
         }
         
     }

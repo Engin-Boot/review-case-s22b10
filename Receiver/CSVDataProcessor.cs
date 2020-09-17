@@ -9,7 +9,7 @@ namespace Receiver
         public readonly List<string> Date = new List<string>();
     }
 
-    public class CsvDataManipulator
+    public static class CsvDataManipulator
     {
         public static void AppendDateInListIfNotInList(string date, CsvDataStructure csvObj)
         {
