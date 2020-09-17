@@ -4,7 +4,7 @@ using System.IO;
 
 namespace Receiver
 {
-    public class StringPreProcessor
+    public static class StringPreProcessor
     {
         private static bool IsStringIsNull(string word)
         {
@@ -21,7 +21,7 @@ namespace Receiver
         }
         private static bool CheckStringIsDate(string date)
         {
-            return DateTime.TryParse(date, out var dateValue);
+            return DateTime.TryParse(date, out _);
         }
         public static string ReturnStringIfStringIsDate(string date)
         {

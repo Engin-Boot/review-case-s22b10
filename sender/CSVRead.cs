@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 [assembly: InternalsVisibleTo("sender.Test")]
 namespace sender
 {
-    public class CSVReader
+    public class CsvReader
     {
         internal void WriteWordOnConsole(StreamReader reader, [Optional] string columnFilter)
         {
@@ -24,7 +24,7 @@ namespace sender
                 }
                 catch(FormatException)
                 {
-                    Console.Write("2(0xA)");
+                    Writer.WriterOnConsole("2(0xA)");
                     return;
                 }
                 WriteWordOnConsoleWithColumnFilter(reader, columnName);
@@ -49,9 +49,9 @@ namespace sender
                 var commentString = SplitRowBasedOnSeperator(row, ',');
                 for (var column = 0; column < commentString.Length; column++)
                 {
-                    Console.Write(commentString[column] + " ");
+                    Writer.WriterOnConsole(commentString[column] + " ");
                 }
-                Console.WriteLine();
+                Writer.WriterOnConsole("\n");
             }
         }
 
@@ -63,7 +63,7 @@ namespace sender
                 var commentString = SplitRowBasedOnSeperator(row, ',');
                 try
                 {
-                    Console.Write(commentString[columnFilter] + " ");
+                    Writer.WriterOnConsole(commentString[columnFilter] + " ");
                 }
                 catch (IndexOutOfRangeException)
                 {

@@ -4,7 +4,6 @@ namespace Receiver.Test
 {
     public class TestCsvDataProcessor
     {
-
         [Fact]
         public void TestAppendDateInListIfNotInList()
         {
