@@ -1,3 +1,4 @@
+using System.IO;
 using Xunit;
 
 namespace Receiver.Test
@@ -34,6 +35,12 @@ namespace Receiver.Test
             string symbolOnly = StringPreProcessor.RemoveSymbolsAndReturnString("#$$$###");
             Assert.Equal(stringOutput, stringInput);
             Assert.Equal(0, symbolOnly.Length);
+        }
+
+        [Fact]
+        public void TestisValidStringForWordNotExists()
+        {
+            Assert.True(StringPreProcessor.IsValidString("invalid"));
         }
     }
 }

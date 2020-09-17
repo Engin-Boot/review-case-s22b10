@@ -10,6 +10,7 @@ namespace Receiver
         {
             return (word == null);
         }
+
         public static bool IsValidString(string word)
         {
             bool isStopWord = RemoveStopWord(word);
@@ -21,7 +22,7 @@ namespace Receiver
         }
         private static bool CheckStringIsDate(string date)
         {
-            return DateTime.TryParse(date, out var dateValue);
+            return DateTime.TryParse(date, out _);
         }
         public static string ReturnStringIfStringIsDate(string date)
         {
@@ -96,7 +97,7 @@ namespace Receiver
         private static bool RemoveStopWord(string word)
         {
             StreamReadWrite srw = new StreamReadWrite();
-            string filePath = "C:\\Users\\320089145\\trainging\\ConsoleApp1\\ConsoleApp1\\bin\\Debug\\stopwords.csv";
+            string filePath = "resources/stopwords.csv";
             bool isFilePathExist = File.Exists(filePath);
             if (isFilePathExist)
             {

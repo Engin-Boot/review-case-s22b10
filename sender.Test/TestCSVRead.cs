@@ -12,6 +12,18 @@ namespace sender.Test
         {
             _csvread = new CSVReader();
         }
+
+        private string CheckDataOnConsoleOnCallingWriteWordOnConsole(string col)
+        {
+            var filename = "testcsvreader.csv";
+            CreateDummyCsv(filename);
+            using var sr = CreateStreamReaderDummyCsv(filename);
+            var output = ConsolerReaderForTest();
+            _csvread.WriteWordOnConsole(sr, col);
+            var outputResult = output.ToString();
+            output.Close();
+            return outputResult;
+        }
         [Fact]
         public void TestWriteWordOnConsoleWithNoColFilter()
         {
@@ -27,32 +39,22 @@ namespace sender.Test
         [Fact]
         public void TestWriteWordOnConsoleWithColFilter()
         {
-            var filename = "testcsvreader.csv";
-            CreateDummyCsv(filename);
-            using var sr = CreateStreamReaderDummyCsv(filename);
-            var output = ConsolerReaderForTest();
-            _csvread.WriteWordOnConsole(sr, "0");
+            var actualResult = CheckDataOnConsoleOnCallingWriteWordOnConsole("0");
             var expected_result = "4/28/2020  10:14:00 AM 4/27/2020  9:14:00 AM ";
-            Assert.Equal(expected_result, output.ToString());
-            output.Close();
+            Assert.Equal(expected_result, actualResult);
         }
         [Fact]
         public void TestWriteWordOnConsoleForNoColData()
         {
-            var filename = "testcsvreader.csv";
-            CreateDummyCsv(filename);
-            using var sr = CreateStreamReaderDummyCsv(filename);
-            var output = ConsolerReaderForTest();
-            _csvread.WriteWordOnConsole(sr, "2");
+            var actualResult = CheckDataOnConsoleOnCallingWriteWordOnConsole("2");
             const string expectedResult = "";
-            Assert.Equal(expectedResult, output.ToString());
-            output.Close();
+            Assert.Equal(expectedResult, actualResult);
         }
         [Fact]
         public void TestSplitRowBasedOnSeperatorWithNoSeperator()
         {
             string[] expectedResult = { "" };
-            string[] actualResult = _csvread.SplitRowBasedOnSeperator("", ',');
+            var actualResult = _csvread.SplitRowBasedOnSeperator("", ',');
             Assert.Equal(expectedResult, actualResult);
         }
         public void Dispose()
