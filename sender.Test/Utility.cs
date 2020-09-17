@@ -55,20 +55,5 @@ namespace sender.Test
             SetOut(output);
             return output;
         }
-
-        public static string CreateEmptyCsv(string fileName)
-        {
-            var filePath = GetDummyCsvPath(fileName);
-            try
-            {
-                File.Create(filePath).Close();
-                return filePath;
-            }
-            catch (IOException)
-            {
-                return null;
-            }
-        }
-        
     }
 }
