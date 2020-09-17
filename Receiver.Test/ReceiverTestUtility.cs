@@ -1,7 +1,8 @@
-﻿using System.IO;
+using System.IO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using static  System.Console;
 
 namespace Receiver.Test
 {
@@ -46,6 +47,12 @@ namespace Receiver.Test
             CsvDataStructure obj = new CsvDataStructure();
             obj.WordCount = wordCount;
             return obj;
+        }
+        public static StringWriter ConsolerReaderToTestReciver()
+        {
+            var output = new StringWriter();
+            SetOut(output);
+            return output;
         }
     }
 }
