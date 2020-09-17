@@ -33,7 +33,7 @@ namespace sender
             reader.Close();
         }
 
-        private string[] SplitRowBasedOnSeperator(string row, char seperator)
+        public string[] SplitRowBasedOnSeperator(string row, char seperator)
         {
             if (row.Contains(seperator))
             {

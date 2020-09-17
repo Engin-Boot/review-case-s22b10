@@ -53,26 +53,9 @@ namespace sender.Test
         [Fact]
         public void TestTestWriteWordOnConsoleForNoColDataWithNoSeperator()
         {
-
-<<<<<<< .mine
             string[] expectedResult = { "" };
-            var actualResult = _csvread.SplitRowBasedOnSeperator("", ',');
+            var actualResult = _csvread.SplitRowBasedOnSeperator("\n", ',');
             Assert.Equal(expectedResult, actualResult);
-
-
-
-
-
-=======
-            var filename = "testcsvreader.csv";
-            CreateEmptyCsv(filename);
-            using var sr = CreateStreamReaderDummyCsv(filename);
-            var output = ConsolerReaderForTest();
-            _csvread.WriteWordOnConsole(sr, "2");
-            const string expectedResult = "";
-            Assert.Equal(expectedResult, output.ToString());
-            output.Close();
->>>>>>> .theirs
         }
         public void Dispose()
         {
