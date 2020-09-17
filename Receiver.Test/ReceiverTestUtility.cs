@@ -43,8 +43,7 @@ namespace Receiver.Test
         }
         public static CsvDataStructure ReturnClassObject(string wordCount)
         {
-            CsvDataStructure obj = new CsvDataStructure();
-            obj.WordCount = wordCount;
+            CsvDataStructure obj = new CsvDataStructure {WordCount = wordCount};
             return obj;
         }
         public static StringWriter ConsolerReaderToTestReciver()
