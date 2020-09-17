@@ -26,7 +26,7 @@ namespace Receiver
                 var words = line.Split(',');
                 try
                 {
-                    CsvDataManipulator.AddDataInList(words[0], words[1],words[2],fileContent);
+                    CsvDataManipulator.AddDataInList(words[0], words[1],fileContent);
                 }
                 catch (Exception)
                 {
@@ -53,7 +53,7 @@ namespace Receiver
                     {
                         try
                         {
-                            CsvDataManipulator.AddDataInList(stringOnly, "1", date,fileContent);
+                            CsvDataManipulator.AddDataInList(stringOnly, "1",fileContent);
                         }
                         catch (ArgumentException)
                         {

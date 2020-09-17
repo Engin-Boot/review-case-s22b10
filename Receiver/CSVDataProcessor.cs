@@ -20,11 +20,10 @@ namespace Receiver
             csvObj.Date.Add(date);
         }
 
-        public static void AddDataInList(string word, string wordCount, string date,
+        public static void AddDataInList(string word, string wordCount,
             Dictionary<string, CsvDataStructure> fileContent)
         {
             var listObj = new CsvDataStructure();
-            listObj.Date.Add(date);
             listObj.WordCount = wordCount;
             fileContent.Add(word, listObj);
         }
