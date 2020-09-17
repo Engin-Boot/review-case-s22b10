@@ -4,14 +4,15 @@ using static System.Console;
 
 namespace sender.Test
 {
-    public class Utility
+    public static class Utility
     {
         public static string GetDummyCsvPath(string csvFileName)
         {
             string path = Directory.GetCurrentDirectory();
             var directoryInfo = Directory.GetParent(path).Parent;
             if (directoryInfo != null)
-                return Path.Combine(directoryInfo.Parent.FullName, csvFileName);
+                if (directoryInfo.Parent != null)
+                    return Path.Combine(directoryInfo.Parent.FullName, csvFileName);
             return null;
         }
         public static string CreateDummyCsv(string csvFileName)

@@ -7,10 +7,10 @@ namespace sender.Test
     [Collection("Sender")]
     public class TestCsvRead : IDisposable
     {
-        readonly CSVReader _csvread;
+        readonly CsvReader _csvread;
         public TestCsvRead()
         {
-            _csvread = new CSVReader();
+            _csvread = new CsvReader();
         }
         [Fact]
         public void TestWriteWordOnConsoleWithNoColFilter()
@@ -20,7 +20,7 @@ namespace sender.Test
             using var sr = CreateStreamReaderDummyCsv(filename);
             var output = ConsolerReaderForTest();
             _csvread.WriteWordOnConsole(sr);
-            var expected_result = "4/28/2020  10:14:00 AM Comment1 \r\n4/27/2020  9:14:00 AM Comment2 \r\n";
+            var expected_result = "4/28/2020  10:14:00 AM Comment1 \n4/27/2020  9:14:00 AM Comment2 \n";
             Assert.Equal(expected_result, output.ToString());
             output.Close();
         }

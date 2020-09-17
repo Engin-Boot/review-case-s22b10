@@ -20,7 +20,7 @@ namespace sender
                 Writer.WriterOnConsole("2(0xF)");
                 return;
             }
-            CSVReader reader = new CSVReader();
+            CsvReader reader = new CsvReader();
             if (args.Length <= 1)
             {
                 reader.WriteWordOnConsole(streamReader);

@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 [assembly: InternalsVisibleTo("sender.Test")]
 namespace sender
 {
-    public class CSVReader
+    public class CsvReader
     {
         internal void WriteWordOnConsole(StreamReader reader, [Optional] string columnFilter)
         {
