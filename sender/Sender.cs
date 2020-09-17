@@ -17,10 +17,10 @@ namespace sender
             }
             catch (Exception)
             {
-                Console.Write("2(0xF)");
+                Writer.WriterOnConsole("2(0xF)");
                 return;
             }
-            CSVReader reader = new CSVReader();
+            CsvReader reader = new CsvReader();
             if (args.Length <= 1)
             {
                 reader.WriteWordOnConsole(streamReader);

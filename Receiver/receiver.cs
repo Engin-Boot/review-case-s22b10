@@ -2,7 +2,7 @@
 
 namespace Receiver
 {
-    class Receiver
+    static class Receiver
     {
         public static void Main()
         {

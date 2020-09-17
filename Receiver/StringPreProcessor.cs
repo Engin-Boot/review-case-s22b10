@@ -4,7 +4,7 @@ using System.IO;
 
 namespace Receiver
 {
-    public class StringPreProcessor
+    public static class StringPreProcessor
     {
         private static bool IsStringIsNull(string word)
         {
@@ -97,8 +97,7 @@ namespace Receiver
         private static bool RemoveStopWord(string word)
         {
             StreamReadWrite srw = new StreamReadWrite();
-            string filePath = "resources/stopwords.csv";
-            bool isFilePathExist = File.Exists(filePath);
+			string filePath = "resources/stopwords.csv";            bool isFilePathExist = File.Exists(filePath);
             if (isFilePathExist)
             {
                 StreamReader sr = srw.StreamReturnObject(filePath);

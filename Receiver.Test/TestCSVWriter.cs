@@ -4,12 +4,12 @@ using static Receiver.Test.ReceiverTestUtility;
 
 namespace Receiver.Test
 {
-    public class TestCSVWriter
+    public class TestCsvWriter
     {
         [Fact]
         public void TestWriteOnCSV()
         {
-            CsvWriter writer = writer = new CsvWriter();
+            CsvWriter writer = new CsvWriter();
             string fileName = "TestWriteOnCSV.csv";
             string filePath = CreateTestFileAndReturnFilePath(fileName);
             Dictionary<string, CsvDataStructure> data = new Dictionary<string, CsvDataStructure>();

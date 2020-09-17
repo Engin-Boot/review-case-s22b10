@@ -1,12 +1,11 @@
 using System.IO;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using static  System.Console;
 
 namespace Receiver.Test
 {
-    class ReceiverTestUtility
+    static class ReceiverTestUtility
     {
         public static string ToAssertableString(Dictionary<string, CsvDataStructure> dictionary)
         {
@@ -27,9 +26,9 @@ namespace Receiver.Test
                     CsvDataStructure obj = ReturnClassObject(words[1]);
                     fileContent.Add(words[0], obj);
                 }
-                catch (Exception)
+                catch (System.Exception)
                 {
-                    Console.WriteLine("Error while reading the file");
+                    WriteLine("Error while reading the file");
                 }
             }
             sr.Close();

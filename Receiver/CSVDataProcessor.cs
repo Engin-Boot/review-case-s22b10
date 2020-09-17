@@ -6,14 +6,14 @@ namespace Receiver
     public class CsvDataStructure
     {
         public string WordCount { get; set; }
-        public List<string> Date = new List<string>();
+        public readonly List<string> Date = new List<string>();
     }
 
-    public class CsvDataManipulator
+    public static class CsvDataManipulator
     {
         public static void AppendDateInListIfNotInList(string date, CsvDataStructure csvObj)
         {
-            if (csvObj.Date.Any(enter => enter == date == true))
+            if (csvObj.Date.Any(enter => enter == date))
             {
                 return;
             }
@@ -23,8 +23,7 @@ namespace Receiver
         public static void AddDataInList(string word, string wordCount,
             Dictionary<string, CsvDataStructure> fileContent)
         {
-            var listObj = new CsvDataStructure();
-            listObj.WordCount = wordCount;
+            var listObj = new CsvDataStructure {WordCount = wordCount};
             fileContent.Add(word, listObj);
         }
     }
