@@ -17,7 +17,7 @@ namespace sender
             }
             catch (Exception)
             {
-                Console.Write("2(0xF)");
+                Writer.WriterOnConsole("2(0xF)");
                 return;
             }
             CSVReader reader = new CSVReader();
