@@ -10,13 +10,16 @@ namespace Receiver.Test
         public void TestCreateFile()
         {
             string fileName = "TestCreateFile.csv";
-            bool isFileCreated = Utility.CreateFile(fileName);
-            string currDir = Directory.GetCurrentDirectory();
-            string filePath = Path.Combine(currDir, fileName);
-            if(File.Exists(filePath))
+            if (File.Exists(fileName))
+            {
+                bool isFileCreated = Utility.CreateFile(fileName);
                 Assert.True(isFileCreated);
+            }
             else
-                Assert.True(isFileCreated);
+            {
+                bool isFileCreated = Utility.CreateFile(fileName);
+                Assert.False(isFileCreated);
+            }
         }
 
         [Fact]
