@@ -10,7 +10,7 @@ namespace Receiver.Test
         [Fact]
         public void ConsolerReaderForTestWithErrorCode()
         {
-            var output = ConsolerReaderForTest();
+            var output = ReceiverConsolerReaderForTest();
             HandleError.IfErrorLogInConsole("2(0xA)");
             Assert.Equal("Error: Invalid column argument\r\n", output.ToString());
             output.Close();
@@ -18,7 +18,7 @@ namespace Receiver.Test
         [Fact]
         public void TestErrorLogInConsoleWithNoErrorCode()
         {
-            var output = ConsolerReaderForTest();
+            var output = ReceiverConsolerReaderForTest();
             HandleError.IfErrorLogInConsole("");
             Assert.Equal("", output.ToString());
             output.Close();
